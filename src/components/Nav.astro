@@ -1,0 +1,33 @@
+---
+const links = [
+  { href: '#companeros',    label: 'Compañeros' },
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#precios',       label: 'Precios' },
+  { href: '#padres',        label: 'Padres' },
+];
+---
+<nav class="relative z-30 container-narrow flex items-center justify-between py-5">
+  <a href="#top" class="flex items-center gap-3 group">
+    <!-- Logo bloque grass con H dorada -->
+    <div class="relative w-11 h-11 grass-block" style="box-shadow: inset 0 -8px 0 0 #8B5A3C, inset 0 -16px 0 0 #8B5A3C, inset 0 4px 0 0 #94C95C;">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="font-display text-lg text-hermes text-mc">H</span>
+      </div>
+    </div>
+    <span class="font-display text-xs tracking-widest text-cream text-mc">
+      HERMES<span class="text-hermes">CRAFT</span>
+    </span>
+  </a>
+
+  <div class="hidden md:flex items-center gap-7">
+    {links.map((l) => (
+      <a href={l.href} class="font-mono text-xs uppercase tracking-widest text-cream hover:text-hermes text-mc transition-colors">
+        {l.label}
+      </a>
+    ))}
+  </div>
+
+  <a href="#crowdfunding" class="btn-mc btn-mc-gold !py-2 !px-4 !text-[10px]">
+    Apoyar
+  </a>
+</nav>

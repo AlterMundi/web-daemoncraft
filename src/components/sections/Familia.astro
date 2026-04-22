@@ -1,0 +1,99 @@
+---
+const features = [
+  {
+    label: 'El Reporte del Mensajero',
+    desc: 'Todos los domingos: "Esta semana Valentín construyó una réplica del Coliseo y resolvió un problema de simetría. Mostró persistencia cuando un creeper rompió su base."',
+    tone: 'domingo',
+  },
+  {
+    label: 'Configuración de Intenciones',
+    desc: '"Hermes, esta semana Sofía está con dificultades en matemáticas. ¿Podés integrar algunos desafíos de multiplicación en el juego?" Hermes escucha. Y lo hace tan natural que Sofía ni se da cuenta.',
+    tone: 'martes',
+  },
+  {
+    label: 'Alertas de Contexto',
+    desc: 'Si Hermes detecta que el niño está frustrado, triste o en conflicto con otro jugador, envía una notificación discreta. No para intervenir — para que el adulto esté al tanto.',
+    tone: 'cuando pasa',
+  },
+];
+---
+<section id="familia" class="relative py-24 md:py-36">
+  <div class="container-narrow">
+    <div class="grid md:grid-cols-[2fr_1fr] gap-10 md:gap-16 mb-16">
+      <div class="space-y-6">
+        <span class="h-mini">03 / La Familia</span>
+        <div class="w-12 h-0.5 bg-hermes"></div>
+        <h2 class="h-display">Visibilidad sin invasión</h2>
+        <p class="text-cream/80 text-lg leading-relaxed max-w-2xl">
+          El mayor miedo de los padres hoy no es que el juego sea malo. Es <em>no saber</em> qué está pasando adentro.
+          HermesCraft le devuelve ese hilo a la familia — sin espiar al niño, sin interrumpir el juego, sin instalar nada.
+        </p>
+      </div>
+
+      <!-- Telegram mockup -->
+      <div class="relative">
+        <div class="bg-navy-700 border-2 border-hermes/30 p-4 max-w-[280px] ml-auto"
+             style="box-shadow: inset 0 2px 0 0 rgba(201,168,76,0.15), 8px 8px 0 0 rgba(0,0,0,0.4);">
+          <div class="flex items-center gap-2 mb-3 pb-3 border-b border-hermes/20">
+            <div class="w-8 h-8 bg-hermes flex items-center justify-center">
+              <span class="font-display text-[10px] text-navy">H</span>
+            </div>
+            <div>
+              <div class="font-mono text-xs text-cream">Hermes</div>
+              <div class="font-mono text-[9px] text-teal-digital">● en línea en Minecraft</div>
+            </div>
+          </div>
+          <div class="space-y-2 text-xs">
+            <div class="bg-navy-800 p-2 text-cream/80">
+              Valentín terminó el Coliseo. 🏛️ Mostró simetría impecable.
+            </div>
+            <div class="bg-navy-800 p-2 text-cream/80">
+              ¿Le propongo el Laberinto de Creta la próxima?
+            </div>
+            <div class="text-right font-mono text-[10px] text-cream/40">leído · 17:42</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      {features.map((f) => (
+        <div class="block-card flex flex-col md:flex-row gap-6 md:items-center">
+          <div class="md:w-48 flex-shrink-0">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-teal-digital mb-1">{f.tone}</div>
+            <div class="font-serif text-xl text-hermes">{f.label}</div>
+          </div>
+          <div class="text-cream/75 leading-relaxed text-[15px]">{f.desc}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Soberanía -->
+    <div class="mt-16 relative overflow-hidden bg-gradient-to-br from-navy-700 to-navy-900 border-2 border-hermes/40 p-8 md:p-12">
+      <div class="absolute top-0 right-0 w-32 h-32 opacity-20">
+        <svg viewBox="0 0 32 32" class="w-full h-full" shape-rendering="crispEdges">
+          <rect x="6" y="8" width="20" height="4" fill="#C9A84C"/>
+          <rect x="8" y="12" width="16" height="16" fill="#C9A84C"/>
+          <rect x="14" y="4" width="4" height="4" fill="#C9A84C"/>
+          <rect x="12" y="16" width="8" height="8" fill="#0D1B2A"/>
+          <rect x="15" y="19" width="2" height="4" fill="#C9A84C"/>
+        </svg>
+      </div>
+      <span class="h-mini">Soberanía y Privacidad</span>
+      <div class="mt-4 max-w-2xl space-y-4">
+        <p class="text-cream text-xl md:text-2xl font-serif leading-relaxed">
+          Los datos de tu hijo no viajan a ningún servidor corporativo.
+        </p>
+        <p class="text-cream/70 leading-relaxed">
+          No alimentan modelos de entrenamiento. No se venden. Cada perfil de Hermes corre en una instancia
+          privada, bajo el control exclusivo de la familia. No es una feature técnica — es un principio
+          filosófico de <a href="https://altermundi.net" class="text-hermes hover:underline">AlterMundi</a>
+          aplicado a la crianza digital.
+        </p>
+        <blockquote class="font-serif italic text-cream/90 text-lg pl-4 border-l-2 border-hermes">
+          "Vos sabés dónde están los datos de tu hijo. Nosotros nos aseguramos de que queden ahí."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

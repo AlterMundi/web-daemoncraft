@@ -1,0 +1,74 @@
+---
+const steps = [
+  { n: '1', time: '0s',  action: 'Abrí hermescraft.ai',           response: 'Elegís un preset y le ponés nombre' },
+  { n: '2', time: '8s',  action: 'Preview del SOUL',              response: 'Ves las skills y la personalidad' },
+  { n: '3', time: '15s', action: 'Elegís el mundo',               response: 'Tu server o uno de los nuestros' },
+  { n: '4', time: '22s', action: 'Agregás el bot a Telegram',     response: 'Primer "hola" de tu Hermes' },
+  { n: '5', time: '30s', action: '"Hi Steve, build with me"',     response: 'Aparece al lado tuyo. Empiezan a jugar.' },
+];
+
+const capabilities = [
+  { icon: '⛏', label: 'Minar y craftear', desc: 'Junta materiales, te acompaña al nether o a las minas' },
+  { icon: '🏠', label: 'Construir juntos', desc: 'Le decís "hagamos un castillo" y lo arma contigo, bloque a bloque' },
+  { icon: '💬', label: 'Conversar',         desc: 'Chat natural en el juego. Habla como amigo, no como manual' },
+  { icon: '⚔',  label: 'Pelear a tu lado', desc: 'Te defiende de mobs, coordina estrategias de combate' },
+  { icon: '📖', label: 'Crear aventuras',  desc: 'Transforma tu mapa en un juego de rol basado en tus libros' },
+  { icon: '🧠', label: 'Recordarte',         desc: 'No se olvida. Memoria persistente entre sesiones y mundos' },
+];
+---
+<section id="como-funciona" class="relative py-24 md:py-32 bg-cream">
+  <div class="absolute top-0 inset-x-0 h-6 bg-grass-dark" style="box-shadow: inset 0 4px 0 0 #7CAC50;"></div>
+
+  <div class="container-narrow relative">
+    <div class="max-w-3xl mb-14">
+      <span class="h-mini text-hermes-dark">02 / Cómo funciona</span>
+      <h2 class="h-display text-ink mt-3 mb-5">
+        En <span class="text-hermes-dark">30 segundos</span> lo tenés jugando.
+      </h2>
+      <p class="text-ink/80 text-lg leading-relaxed">
+        No hay que instalar mods, ni configurar servidores raros.
+        Tu Hermes vive en la nube, se conecta a tu Minecraft y aparece como un amigo más.
+      </p>
+    </div>
+
+    <!-- Timeline 30s -->
+    <div class="relative mb-20">
+      <!-- línea pixel -->
+      <div class="hidden md:block absolute top-10 left-[8%] right-[8%] h-1 bg-ink/10"></div>
+      <div class="grid md:grid-cols-5 gap-4 md:gap-2 relative">
+        {steps.map((s) => (
+          <div class="text-center">
+            <div class="relative w-20 h-20 mx-auto mb-4 bg-hermes border-4 border-hermes-dark flex items-center justify-center shadow-pixel-lg">
+              <span class="font-display text-3xl text-ink">{s.n}</span>
+              <span class="absolute -top-2 -right-2 entity-tag">{s.time}</span>
+            </div>
+            <div class="font-display text-[11px] uppercase tracking-wider text-ink mb-2">{s.action}</div>
+            <div class="font-sans text-sm text-ink/70 leading-snug">{s.response}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Capabilities grid -->
+    <div class="max-w-3xl mb-10">
+      <h3 class="font-serif font-bold text-2xl md:text-3xl text-ink mb-3">
+        Qué puede hacer tu compañero
+      </h3>
+      <p class="text-ink/70">
+        No es un NPC scripted. Es un agente que percibe el mundo, razona y actúa de verdad.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {capabilities.map((c) => (
+        <div class="bg-sky-light border-4 border-sky-deep p-5 hover:bg-sky transition-colors" style="box-shadow: inset 0 -4px 0 0 rgba(0,0,0,0.15), inset 0 4px 0 0 rgba(255,255,255,0.5);">
+          <div class="text-3xl mb-2">{c.icon}</div>
+          <div class="font-serif font-bold text-lg text-ink mb-1">{c.label}</div>
+          <div class="text-sm text-ink/75">{c.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 inset-x-0 h-6 bg-grass-dark" style="box-shadow: inset 0 -4px 0 0 #3B7A2E;"></div>
+</section>

@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Monocraft';
+  src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@v4.0/dist/Monocraft.otf') format('opentype');
+  font-display: swap;
+}
+
+:root {
+  --sky: #7EC0EE;
+  --sky-light: #A4D9F7;
+  --sky-deep: #4FA3D6;
+  --grass: #7CAC50;
+  --grass-dark: #5A7F3A;
+  --dirt: #8B5A3C;
+  --hermes: #F5C542;
+  --night: #1A1E2E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sky text-ink font-sans antialiased;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Force crisp pixel rendering on decorative elements */
+body > * img, .pixel-img {
+  image-rendering: pixelated;
+}
+
+@layer components {
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .section-label {
+    @apply font-mono text-xs tracking-[0.3em] uppercase;
+  }
+
+  .h-display {
+    @apply font-serif font-bold text-4xl md:text-6xl leading-[1.05];
+    letter-spacing: -0.01em;
+  }
+
+  .h-mini {
+    @apply font-display text-[10px] md:text-xs uppercase tracking-wider;
+  }
+
+  /* ─── Bloque Minecraft genérico ─── */
+  .mc-block {
+    position: relative;
+    @apply inline-block;
+    box-shadow:
+      inset 0 -4px 0 0 rgba(0,0,0,0.3),
+      inset 4px 0 0 0 rgba(255,255,255,0.2),
+      inset -4px 0 0 0 rgba(0,0,0,0.15),
+      inset 0 4px 0 0 rgba(255,255,255,0.3);
+  }
+
+  /* ─── Grass block estilizado ─── */
+  .grass-block {
+    position: relative;
+    display: inline-block;
+    background-color: #8FA352;
+    box-shadow:
+      inset 0 -6px 0 0 #6B4423,
+      inset 0 6px 0 0 #7CAC50,
+      inset 0 12px 0 0 #94C95C;
+  }
+
+  /* ─── Cards estilo Minecraft panel ─── */
+  .mc-card {
+    @apply relative bg-cream border-4 p-5 md:p-6;
+    border-color: rgba(31, 41, 51, 0.8);
+    box-shadow:
+      inset 0 -4px 0 0 rgba(0,0,0,0.15),
+      inset 0 4px 0 0 rgba(255,255,255,0.5),
+      4px 4px 0 0 rgba(0,0,0,0.25);
+  }
+
+  .mc-panel {
+    @apply relative text-cream border-4 border-night p-6 md:p-8 backdrop-blur-sm;
+    background-color: rgba(26, 30, 46, 0.85);
+    box-shadow:
+      inset 0 -4px 0 0 rgba(0,0,0,0.5),
+      inset 0 4px 0 0 rgba(255,255,255,0.1),
+      6px 6px 0 0 rgba(0,0,0,0.25);
+  }
+
+  /* ─── Botones Minecraft ─── */
+  .btn-mc {
+    @apply inline-flex items-center gap-2 px-5 py-3 font-display text-xs uppercase tracking-wider;
+    @apply bg-grass text-cream border-2 border-grass-dark;
+    box-shadow:
+      inset 0 3px 0 0 rgba(255,255,255,0.3),
+      inset 0 -3px 0 0 rgba(0,0,0,0.3),
+      4px 4px 0 0 rgba(0,0,0,0.25);
+    transition: transform 100ms, box-shadow 100ms;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+  }
+  .btn-mc:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+      inset 0 3px 0 0 rgba(255,255,255,0.35),
+      inset 0 -3px 0 0 rgba(0,0,0,0.3),
+      6px 6px 0 0 rgba(0,0,0,0.25);
+  }
+  .btn-mc:active {
+    transform: translate(2px, 2px);
+    box-shadow:
+      inset 0 3px 0 0 rgba(255,255,255,0.3),
+      inset 0 -3px 0 0 rgba(0,0,0,0.3),
+      0 0 0 0 rgba(0,0,0,0.25);
+  }
+
+  .btn-mc-gold {
+    @apply bg-hermes text-ink border-hermes-dark;
+    text-shadow: none;
+    box-shadow:
+      inset 0 3px 0 0 rgba(255,255,255,0.5),
+      inset 0 -3px 0 0 rgba(0,0,0,0.25),
+      4px 4px 0 0 rgba(0,0,0,0.25);
+  }
+  .btn-mc-gold:hover {
+    box-shadow:
+      inset 0 3px 0 0 rgba(255,255,255,0.55),
+      inset 0 -3px 0 0 rgba(0,0,0,0.25),
+      6px 6px 0 0 rgba(0,0,0,0.25);
+  }
+
+  .btn-mc-wood {
+    @apply bg-wood text-cream border-wood-dark;
+  }
+
+  /* ─── Texto con outline estilo Minecraft ─── */
+  .text-mc {
+    text-shadow:
+      2px 0 0 #1A1E2E, -2px 0 0 #1A1E2E,
+      0 2px 0 #1A1E2E, 0 -2px 0 #1A1E2E,
+      2px 2px 0 #1A1E2E, -2px -2px 0 #1A1E2E,
+      2px -2px 0 #1A1E2E, -2px 2px 0 #1A1E2E,
+      3px 3px 0 rgba(0,0,0,0.4);
+  }
+
+  /* ─── Etiqueta flotante tipo entity ─── */
+  .entity-tag {
+    @apply px-2 py-0.5 bg-night/75 text-cream font-mono text-[11px];
+  }
+
+  /* ─── Nube pixelada ─── */
+  .pixel-cloud {
+    background:
+      radial-gradient(circle at 25% 50%, #fff 30%, transparent 32%),
+      radial-gradient(circle at 75% 50%, #fff 30%, transparent 32%),
+      radial-gradient(circle at 50% 40%, #fff 40%, transparent 42%);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--hermes);
+  color: var(--night);
+}
+
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--sky); }
+::-webkit-scrollbar-thumb {
+  background: var(--grass);
+  border: 2px solid var(--sky);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grass-dark);
+}

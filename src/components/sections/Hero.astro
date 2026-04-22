@@ -1,0 +1,87 @@
+---
+import SkyBackground from '../SkyBackground.astro';
+import GrassFloor from '../GrassFloor.astro';
+import SteveHermes3D from '../SteveHermes3D.jsx';
+const skinUrl = `${import.meta.env.BASE_URL}skin-hermes.png`;
+---
+<section id="top" class="relative min-h-[100vh] overflow-hidden pt-10">
+  <!-- cielo animado -->
+  <SkyBackground />
+
+  <!-- piso pasto con árboles -->
+  <GrassFloor />
+
+  <!-- contenido -->
+  <div class="relative container-narrow pt-10 md:pt-20 pb-32 md:pb-40 min-h-[90vh] flex items-center">
+    <div class="grid md:grid-cols-[1.1fr_1fr] gap-10 md:gap-12 items-center w-full">
+      <!-- copy -->
+      <div class="space-y-6 md:space-y-7">
+        <div class="inline-flex items-center gap-2 bg-cream/90 border-2 border-ink/20 px-3 py-1.5 shadow-pixel">
+          <span class="w-2 h-2 bg-grass animate-pulse"></span>
+          <span class="font-mono text-[10px] md:text-xs uppercase tracking-widest text-ink">
+            v0.1 en vivo · 500+ agentes
+          </span>
+        </div>
+
+        <h1 class="h-display text-mc text-cream">
+          Tu nuevo<br/>
+          <span class="text-hermes">mejor amigo</span><br/>
+          en Minecraft.
+        </h1>
+
+        <p class="font-sans text-lg md:text-xl text-ink leading-relaxed max-w-xl bg-cream/90 border-2 border-ink/20 p-4 md:p-5 shadow-pixel">
+          Hermes es un <strong>compañero de IA</strong> que juega con vos de verdad.
+          Recuerda lo que le contás, arma aventuras con tus libros favoritos,
+          construye contigo y nunca se cansa.
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#companeros" class="btn-mc btn-mc-gold">
+            Elegí tu compañero →
+          </a>
+          <a href="#como-funciona" class="btn-mc btn-mc-wood">
+            Ver cómo funciona
+          </a>
+        </div>
+
+        <!-- Stats rápidos -->
+        <div class="flex flex-wrap gap-6 pt-4">
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-grass border-2 border-grass-dark"></div>
+            <div>
+              <div class="font-display text-[10px] text-cream text-mc">JAVA · BEDROCK</div>
+              <div class="font-mono text-[10px] text-cream/90 text-mc">Cualquier servidor</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-hermes border-2 border-hermes-dark"></div>
+            <div>
+              <div class="font-display text-[10px] text-cream text-mc">30 SEGUNDOS</div>
+              <div class="font-mono text-[10px] text-cream/90 text-mc">Setup listo</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-stone border-2 border-stone-dark"></div>
+            <div>
+              <div class="font-display text-[10px] text-cream text-mc">DESDE $0</div>
+              <div class="font-mono text-[10px] text-cream/90 text-mc">Free tier</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steve-Hermes 3D con "plataforma" -->
+      <div class="relative">
+        <div class="absolute inset-x-0 bottom-0 h-24 flex items-end justify-center">
+          <div class="w-48 h-4 bg-grass border-x-4 border-b-4 border-grass-dark" style="box-shadow: inset 0 4px 0 0 #94C95C;"></div>
+        </div>
+        <SteveHermes3D client:only="react" skinUrl={skinUrl} height={480} />
+
+        <!-- Name tag flotante -->
+        <div class="absolute top-6 left-1/2 -translate-x-1/2 entity-tag animate-bob">
+          HermesCraft
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

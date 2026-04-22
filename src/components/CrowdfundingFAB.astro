@@ -1,0 +1,22 @@
+---
+const { href = '#crowdfunding' } = Astro.props;
+---
+<a
+  href={href}
+  class="fab fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 group"
+  aria-label="Sumate al seed round"
+>
+  <div class="relative flex items-center gap-3 pl-4 pr-5 py-3.5 bg-hermes border-2 border-hermes-dark text-ink font-display text-[10px] md:text-xs uppercase tracking-widest group-hover:bg-hermes-light transition-colors"
+       style="box-shadow: inset 0 3px 0 0 rgba(255,255,255,0.5), inset 0 -3px 0 0 #C79A1E, 4px 4px 0 0 rgba(0,0,0,0.35);">
+    <!-- bloque dorado mini + caduceo -->
+    <svg viewBox="0 0 16 16" class="w-5 h-5" shape-rendering="crispEdges" fill="currentColor">
+      <rect x="7" y="2"  width="2" height="12"/>
+      <rect x="5" y="4"  width="2" height="1"/>
+      <rect x="9" y="4"  width="2" height="1"/>
+      <rect x="3" y="5"  width="2" height="1"/>
+      <rect x="11" y="5" width="2" height="1"/>
+      <rect x="7" y="1"  width="2" height="1"/>
+    </svg>
+    <span>Apoyar</span>
+  </div>
+</a>

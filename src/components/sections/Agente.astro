@@ -1,0 +1,79 @@
+---
+const capas = [
+  {
+    icon: '■■',
+    name: 'El Cuerpo',
+    tech: 'Mineflayer · Node.js',
+    desc: 'Es el avatar que habita el mundo de Minecraft: camina, mina, construye, pelea y escolta al niño en cualquier servidor. Corre 24/7.',
+  },
+  {
+    icon: '■',
+    name: 'La Conciencia',
+    tech: 'LLM + Vector DB',
+    desc: 'Memoria de larga duración. Si el niño le dijo que le tiene miedo a los creepers, Hermes lo tendrá en cuenta siempre.',
+  },
+  {
+    icon: '■',
+    name: 'El Mensajero',
+    tech: 'Telegram Bridge',
+    desc: 'Puente bidireccional entre Minecraft y Telegram. Lo que pasa en el juego llega al teléfono. Lo que el padre escribe llega al mundo.',
+  },
+];
+
+const sabe = [
+  { icon: '■', label: 'Nivel educativo', desc: 'Adapta desafíos al grado escolar y materias del momento.' },
+  { icon: '■', label: 'Música favorita', desc: 'Puede ambientar aventuras o hacer referencias culturales.' },
+  { icon: '■', label: 'Sabor de helado', desc: 'Los pequeños detalles construyen confianza real.' },
+  { icon: '■', label: 'Miedos en el juego', desc: 'Hermes ajusta la dificultad y el tipo de misiones.' },
+  { icon: '■', label: 'Libros que lee', desc: 'Las historias favoritas se convierten en aventuras en Minecraft.' },
+  { icon: '■', label: 'Estilo de juego', desc: '¿Constructor, explorador o luchador? Hermes lo descubre.' },
+];
+---
+<section id="agente" class="relative py-24 md:py-36 bg-navy-900/40">
+  <div class="absolute inset-0 bg-grid-voxel opacity-30 pointer-events-none" style="background-size: 48px 48px;"></div>
+
+  <div class="relative container-narrow">
+    <div class="max-w-3xl mb-16 md:mb-20">
+      <span class="h-mini">02 / El Agente</span>
+      <div class="w-12 h-0.5 bg-hermes mt-3 mb-6"></div>
+      <h2 class="h-display mb-6">Cómo funciona Hermes</h2>
+      <p class="text-cream/70 text-lg leading-relaxed">
+        Tres capas. Para los niños y los padres, ninguna importa técnicamente — lo que importa es la experiencia.
+        Para quienes quieran entender por qué esto es diferente, acá está la arquitectura del alma.
+      </p>
+    </div>
+
+    <!-- Capas -->
+    <div class="grid md:grid-cols-3 gap-6 mb-20">
+      {capas.map((c, i) => (
+        <div class="block-card group hover:border-hermes/50 transition-colors">
+          <div class="font-display text-xs text-hermes/60 mb-4">0{i + 1}</div>
+          <h3 class="font-serif text-2xl text-cream mb-1">{c.name}</h3>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-teal-digital mb-4">{c.tech}</div>
+          <p class="text-cream/70 text-sm leading-relaxed">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Lo que Hermes sabe -->
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h3 class="font-serif text-3xl md:text-4xl text-cream mb-4">Lo que Hermes sabe del niño</h3>
+      <p class="text-cream/70 leading-relaxed">
+        Desde el primer día, Hermes empieza a conocer a su compañero. No con un formulario aburrido —
+        a través de la conversación en el juego y las preguntas que hace a los padres por Telegram.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {sabe.map((s) => (
+        <div class="p-5 border-l-2 border-hermes/40 bg-navy-700/30 hover:bg-navy-700/60 hover:border-hermes transition-all">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="block-icon"></span>
+            <span class="font-mono text-xs uppercase tracking-wider text-hermes">{s.label}</span>
+          </div>
+          <p class="text-sm text-cream/70">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

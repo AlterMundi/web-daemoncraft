@@ -1,0 +1,40 @@
+---
+// Cielo Minecraft con nubes pixeladas en movimiento
+---
+<div class="sky-bg absolute inset-0 overflow-hidden pointer-events-none">
+  <!-- gradient cielo -->
+  <div class="absolute inset-0" style="background: linear-gradient(to bottom, #A4D9F7 0%, #7EC0EE 60%, #94C95C 100%);"></div>
+
+  <!-- sol pixelado -->
+  <div class="absolute top-10 right-[8%] w-20 h-20 animate-bob" aria-hidden="true">
+    <div class="w-full h-full bg-[#FFE680]" style="box-shadow: inset 0 0 0 4px #FFF2A8, 0 0 60px 10px rgba(255,230,128,0.5);"></div>
+  </div>
+
+  <!-- nubes pixeladas -->
+  {[
+    { top: '8%',  delay: '-30s', scale: 1.0, duration: '80s' },
+    { top: '18%', delay: '-60s', scale: 0.7, duration: '100s' },
+    { top: '28%', delay: '-10s', scale: 1.2, duration: '70s' },
+    { top: '38%', delay: '-80s', scale: 0.6, duration: '110s' },
+  ].map((c) => (
+    <div
+      class="absolute animate-cloud-drift"
+      style={`top: ${c.top}; transform: scale(${c.scale}); animation-delay: ${c.delay}; animation-duration: ${c.duration};`}
+      aria-hidden="true"
+    >
+      <svg width="160" height="60" viewBox="0 0 16 6" shape-rendering="crispEdges">
+        <g fill="#ffffff">
+          <rect x="2" y="1" width="2" height="1"/>
+          <rect x="4" y="1" width="8" height="1"/>
+          <rect x="12" y="1" width="1" height="1"/>
+          <rect x="1" y="2" width="14" height="2"/>
+          <rect x="0" y="3" width="16" height="1"/>
+          <rect x="3" y="4" width="10" height="1"/>
+        </g>
+        <g fill="rgba(0,0,0,0.06)">
+          <rect x="0" y="4" width="16" height="1"/>
+        </g>
+      </svg>
+    </div>
+  ))}
+</div>

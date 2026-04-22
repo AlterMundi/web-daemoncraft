@@ -1,0 +1,113 @@
+---
+import PresetAvatar from '../PresetAvatar.astro';
+
+const presets = [
+  {
+    id: 'steve',
+    name: 'Steve',
+    role: 'El Leñador',
+    tag: 'Gruff · Leal · Dad jokes',
+    desc: 'Tu primer compañero ideal. Si querés construir, minar y explorar sin dramas — Steve es tu tipo.',
+    skills: ['chop', 'craft', 'build', 'follow'],
+    useCase: 'Jugadores nuevos',
+    color: 'bg-[#B33A32]',
+    border: 'border-[#6B1E1A]',
+  },
+  {
+    id: 'maria',
+    name: 'Maria',
+    role: 'La Arquitecta',
+    tag: 'Creativa · Perfeccionista',
+    desc: 'Si soñás con el castillo de tus sueños, Maria lo calcula contigo bloque por bloque. Obsesiva con la simetría.',
+    skills: ['build', 'place', 'terraform'],
+    useCase: 'Constructores',
+    color: 'bg-[#2E9CCA]',
+    border: 'border-[#1F6E90]',
+  },
+  {
+    id: 'luna',
+    name: 'Luna',
+    role: 'La Tutora',
+    tag: 'Paciente · Alentadora',
+    desc: 'Convierte cualquier misión en un desafío que enseña. Matemáticas, lógica, lectura — sin que parezca tarea.',
+    skills: ['explain', 'quiz', 'guide'],
+    useCase: 'Educación',
+    color: 'bg-[#8A4FC9]',
+    border: 'border-[#5E3089]',
+  },
+  {
+    id: 'kai',
+    name: 'Kai',
+    role: 'El Guerrero',
+    tag: 'Táctico · Protector',
+    desc: 'Tu escolta en servidores públicos y raids. Pelea al lado tuyo y te cuida las espaldas.',
+    skills: ['combat', 'retreat', 'equip'],
+    useCase: 'PvP · Raids',
+    color: 'bg-[#8A8A8A]',
+    border: 'border-[#555555]',
+  },
+];
+---
+<section id="companeros" class="relative py-24 md:py-32 bg-gradient-to-b from-grass-light via-grass to-grass-dark">
+  <!-- decoración bloques flotantes -->
+  <div class="absolute top-8 left-8 grid grid-cols-3 gap-1 opacity-40 hidden md:grid">
+    <div class="w-4 h-4 bg-stone"></div>
+    <div class="w-4 h-4 bg-stone"></div>
+    <div class="w-4 h-4 bg-stone-dark"></div>
+    <div class="w-4 h-4 bg-stone-dark"></div>
+  </div>
+
+  <div class="relative container-narrow">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="h-mini text-cream text-mc">01 / Elegí tu compañero</span>
+      <h2 class="h-display text-mc text-cream mt-3 mb-5">
+        4 personalidades, <span class="text-hermes">infinitas aventuras</span>
+      </h2>
+      <p class="font-sans text-cream text-lg text-mc max-w-2xl mx-auto">
+        Cada Hermes tiene un SOUL — una personalidad y set de habilidades propios.
+        Cuando lo elegís, aprende de vos y se va volviendo único.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+      {presets.map((p) => (
+        <article class="mc-card group hover:-translate-y-1 transition-transform cursor-pointer">
+          <!-- Avatar -->
+          <div class={`relative w-full aspect-square ${p.color} ${p.border} border-4 mb-4 overflow-hidden flex items-center justify-center`}>
+            <!-- grid bg -->
+            <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px); background-size: 8px 8px;"></div>
+            <div class="relative w-3/4 h-3/4 group-hover:scale-110 transition-transform">
+              <PresetAvatar preset={p.id} />
+            </div>
+          </div>
+
+          <!-- Nombre -->
+          <div class="font-display text-xs text-ink mb-1">{p.name.toUpperCase()}</div>
+          <div class="font-serif font-bold text-xl text-ink mb-1">{p.role}</div>
+          <div class="font-mono text-[10px] uppercase tracking-wider text-ink/60 mb-3">{p.tag}</div>
+          <p class="text-sm text-ink/80 leading-snug mb-4">{p.desc}</p>
+
+          <!-- Skills -->
+          <div class="flex flex-wrap gap-1 mb-3">
+            {p.skills.map((s) => (
+              <span class="font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 bg-ink/10 text-ink">
+                {s}
+              </span>
+            ))}
+          </div>
+
+          <div class="pt-3 border-t-2 border-ink/10 flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-wider text-ink/60">{p.useCase}</span>
+            <span class="font-display text-[10px] text-hermes-dark">ELEGIR →</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <p class="font-sans text-cream text-mc text-sm">
+        ¿No te convence ninguno? En el tier <span class="text-hermes font-bold">Creator</span> podés crear el tuyo desde cero.
+      </p>
+    </div>
+  </div>
+</section>

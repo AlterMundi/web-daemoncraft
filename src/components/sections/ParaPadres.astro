@@ -1,0 +1,95 @@
+---
+const parentFeatures = [
+  {
+    icon: '📱',
+    label: 'Reporte del domingo',
+    desc: '"Valentín construyó una réplica del Coliseo y resolvió un problema de simetría. Mostró persistencia cuando un creeper rompió su base."',
+  },
+  {
+    icon: '🎯',
+    label: 'Intenciones por Telegram',
+    desc: '"Hermes, esta semana Sofía está con dificultades en matemáticas." Hermes integra desafíos de multiplicación en el juego — natural.',
+  },
+  {
+    icon: '🛡️',
+    label: 'Guardian Mode',
+    desc: 'En servidores públicos, Hermes monitorea lenguaje de otros jugadores y escolta en silencio. Alertas discretas si pasa algo.',
+  },
+  {
+    icon: '🔒',
+    label: 'Datos tuyos',
+    desc: 'Instancia privada por familia. No alimentan modelos. No se venden. Podés pedir borrado total con un click.',
+  },
+];
+---
+<section id="padres" class="relative py-24 md:py-32 bg-night text-cream">
+  <!-- borde tierra arriba -->
+  <div class="absolute top-0 inset-x-0 h-8 bg-dirt-dark" style="box-shadow: inset 0 4px 0 0 #8B5A3C;"></div>
+
+  <div class="container-narrow relative">
+    <div class="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-14 items-start">
+      <!-- izq: copy + quote -->
+      <div class="space-y-6">
+        <span class="h-mini text-hermes">03 / Para los que pagan la cuenta</span>
+        <h2 class="h-display text-cream">
+          Un mensajero que te <span class="text-hermes">devuelve el hilo</span> sin espiar.
+        </h2>
+        <p class="text-cream/80 text-lg leading-relaxed">
+          El mayor miedo no es que el juego sea malo. Es <em>no saber</em> qué está pasando adentro.
+          Hermes le da voz a ese mundo — sin cámaras, sin tracking, sin espionaje.
+          Él te cuenta lo importante. Tu hijo sigue jugando tranquilo.
+        </p>
+
+        <!-- Telegram mockup -->
+        <div class="bg-[#0F1724] border-4 border-cream/10 p-5 max-w-md" style="box-shadow: 6px 6px 0 0 rgba(0,0,0,0.5);">
+          <div class="flex items-center gap-3 mb-4 pb-3 border-b border-cream/10">
+            <div class="w-10 h-10 bg-hermes flex items-center justify-center font-display text-xs text-ink">H</div>
+            <div>
+              <div class="font-sans font-bold text-cream text-sm">Hermes</div>
+              <div class="font-mono text-[11px] text-grass flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-grass rounded-full"></span>
+                online en Minecraft
+              </div>
+            </div>
+          </div>
+          <div class="space-y-2.5 text-sm">
+            <div class="bg-cream/10 p-3 text-cream/90 max-w-[85%] rounded-sm">
+              Valentín terminó el Coliseo esta tarde 🏛️ Simetría impecable.
+            </div>
+            <div class="bg-cream/10 p-3 text-cream/90 max-w-[85%] rounded-sm">
+              Mostró mucha persistencia cuando un creeper rompió la base sur. No abandonó.
+            </div>
+            <div class="bg-cream/10 p-3 text-cream/90 max-w-[85%] rounded-sm">
+              ¿Le propongo el Laberinto de Creta la próxima? Dijo que estaba leyendo mitología.
+            </div>
+            <div class="text-right font-mono text-[10px] text-cream/40 pt-1">leído · 17:42</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- der: features -->
+      <div class="space-y-4">
+        {parentFeatures.map((f) => (
+          <div class="bg-cream/5 border-l-4 border-hermes p-5 hover:bg-cream/10 transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="text-3xl">{f.icon}</div>
+              <div>
+                <div class="font-serif font-bold text-xl text-hermes mb-1">{f.label}</div>
+                <p class="text-cream/75 text-sm leading-relaxed">{f.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        <!-- COPPA/GDPR badge -->
+        <div class="flex items-center gap-3 mt-6 bg-cream/5 p-4 border-2 border-cream/10">
+          <div class="flex-shrink-0 w-12 h-12 bg-grass flex items-center justify-center text-2xl">✓</div>
+          <div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-grass mb-0.5">COPPA + GDPR</div>
+            <div class="text-sm text-cream/80">Consentimiento parental verificable · Audit log inmutable · Borrado con un click</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

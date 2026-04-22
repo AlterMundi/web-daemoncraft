@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import CrowdfundingBanner from '../components/CrowdfundingBanner.astro';
+import CrowdfundingFAB from '../components/CrowdfundingFAB.astro';
+import Hero from '../components/sections/Hero.astro';
+import Companeros from '../components/sections/Companeros.astro';
+import ComoFunciona from '../components/sections/ComoFunciona.astro';
+import ParaPadres from '../components/sections/ParaPadres.astro';
+import Precios from '../components/sections/Precios.astro';
+import Crowdfunding from '../components/sections/Crowdfunding.astro';
+import Footer from '../components/sections/Footer.astro';
+
+const CROWDFUNDING_URL = '#crowdfunding';
+---
+
+<Layout>
+  <CrowdfundingBanner href={CROWDFUNDING_URL} />
+
+  <main class="pt-8">
+    <Nav />
+    <Hero />
+    <Companeros />
+    <ComoFunciona />
+    <ParaPadres />
+    <Precios />
+    <Crowdfunding href={CROWDFUNDING_URL} />
+    <Footer />
+  </main>
+
+  <CrowdfundingFAB href={CROWDFUNDING_URL} />
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduced) {
+    // Fade + pop de cards cuando entran en viewport
+    document.querySelectorAll('section').forEach((section) => {
+      gsap.from(section.querySelectorAll('.mc-card, .h-display, .btn-mc, article'), {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'back.out(1.4)',
+        stagger: 0.08,
+        scrollTrigger: { trigger: section, start: 'top 85%' },
+      });
+    });
+
+    // Parallax sutil en pasto/nubes del hero
+    gsap.to('#top .grass-floor', {
+      y: -40,
+      ease: 'none',
+      scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true },
+    });
+  }
+
+  // FAB visible solo después del hero, oculto en crowdfunding
+  const fab = document.querySelector('.fab');
+  if (fab) {
+    fab.style.opacity = '0';
+    fab.style.transform = 'translateY(20px)';
+    fab.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.target.id === 'top') {
+          fab.style.opacity = e.isIntersecting ? '0' : '1';
+          fab.style.transform = e.isIntersecting ? 'translateY(20px)' : 'translateY(0)';
+        }
+        if (e.target.id === 'crowdfunding' && e.isIntersecting) fab.style.opacity = '0';
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('#top, #crowdfunding').forEach((el) => io.observe(el));
+  }
+</script>

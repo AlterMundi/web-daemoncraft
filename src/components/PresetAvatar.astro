@@ -1,0 +1,115 @@
+---
+// Avatares pixel-art estilo Minecraft head para los 4 presets SOUL
+const { preset } = Astro.props;
+
+// Cada preset: {skin, hair, cloth1, cloth2, accent, accessory}
+const PRESETS = {
+  steve: {
+    skin: '#EBCFAC', hair: '#3A2818', cloth1: '#B33A32', cloth2: '#3D2214', accent: '#8B5A3C',
+    name: 'Steve',
+    role: 'Lumberjack',
+    personality: 'Gruff, leal, chistes de papá',
+    skills: ['chop', 'craft', 'build', 'follow'],
+    useCase: 'Jugadores nuevos · Niños',
+    icon: 'axe',
+  },
+  maria: {
+    skin: '#EBCFAC', hair: '#6B3F20', cloth1: '#2E9CCA', cloth2: '#F5C542', accent: '#ffffff',
+    name: 'Maria',
+    role: 'Architect',
+    personality: 'Creativa, perfeccionista',
+    skills: ['build', 'place', 'terraform'],
+    useCase: 'Constructores · Servidores',
+    icon: 'blueprint',
+  },
+  luna: {
+    skin: '#E4BFA3', hair: '#1A1E2E', cloth1: '#8A4FC9', cloth2: '#F5C542', accent: '#B89AD9',
+    name: 'Luna',
+    role: 'Tutor',
+    personality: 'Paciente, alentadora',
+    skills: ['explain', 'quiz', 'guide'],
+    useCase: 'Educación · Padres',
+    icon: 'book',
+  },
+  kai: {
+    skin: '#C79B6E', hair: '#2A1A0E', cloth1: '#8A8A8A', cloth2: '#1A1E2E', accent: '#C79A1E',
+    name: 'Kai',
+    role: 'Fighter',
+    personality: 'Táctico, protector',
+    skills: ['combat', 'retreat', 'equip'],
+    useCase: 'PvP · Raids',
+    icon: 'sword',
+  },
+};
+const p = PRESETS[preset];
+---
+<svg viewBox="0 0 16 16" class="w-full h-full" shape-rendering="crispEdges" aria-label={`${p.name} the ${p.role}`}>
+  <!-- Fondo cabeza -->
+  <rect x="0" y="0" width="16" height="16" fill="transparent"/>
+
+  <!-- Pelo top y lados -->
+  <rect x="3" y="1" width="10" height="3" fill={p.hair}/>
+  <rect x="2" y="2" width="1"  height="5" fill={p.hair}/>
+  <rect x="13" y="2" width="1" height="5" fill={p.hair}/>
+
+  <!-- Cara -->
+  <rect x="3" y="4" width="10" height="8" fill={p.skin}/>
+
+  <!-- Casco alado dorado (solo lo tienen todos como seña de ser un "Hermes profile") -->
+  <rect x="3" y="3" width="10" height="2" fill={p.cloth2}/>
+  <rect x="2" y="4" width="1"  height="1" fill={p.cloth2}/>
+  <rect x="13" y="4" width="1" height="1" fill={p.cloth2}/>
+  <!-- Alitas laterales -->
+  <rect x="1" y="3" width="1" height="1" fill={p.cloth2}/>
+  <rect x="0" y="4" width="1" height="1" fill="#FFFFFF"/>
+  <rect x="14" y="3" width="1" height="1" fill={p.cloth2}/>
+  <rect x="15" y="4" width="1" height="1" fill="#FFFFFF"/>
+
+  <!-- Ojos -->
+  <rect x="5" y="7" width="2" height="1" fill="#ffffff"/>
+  <rect x="9" y="7" width="2" height="1" fill="#ffffff"/>
+  <rect x="6" y="7" width="1" height="1" fill={preset === 'luna' ? '#8A4FC9' : preset === 'maria' ? '#2E9CCA' : '#2E5D7B'}/>
+  <rect x="10" y="7" width="1" height="1" fill={preset === 'luna' ? '#8A4FC9' : preset === 'maria' ? '#2E9CCA' : '#2E5D7B'}/>
+
+  <!-- Boca -->
+  <rect x="6" y="10" width="4" height="1" fill="#B88860"/>
+
+  <!-- Cuerpo arriba (torso) -->
+  <rect x="4" y="12" width="8" height="4" fill={p.cloth1}/>
+  <rect x="3" y="13" width="1" height="3" fill={p.cloth1}/>
+  <rect x="12" y="13" width="1" height="3" fill={p.cloth1}/>
+
+  <!-- Detalle según role -->
+  {preset === 'steve' && (
+    <Fragment>
+      <!-- hacha en hombro -->
+      <rect x="2" y="10" width="1" height="4" fill={p.accent}/>
+      <rect x="1" y="9"  width="3" height="2" fill="#C0C0C0"/>
+      <rect x="1" y="11" width="1" height="1" fill="#8A8A8A"/>
+    </Fragment>
+  )}
+  {preset === 'maria' && (
+    <Fragment>
+      <!-- casco/gorra constructor -->
+      <rect x="4" y="0" width="8" height="2" fill="#F5C542"/>
+      <rect x="5" y="-1" width="6" height="1" fill="#F5C542"/>
+    </Fragment>
+  )}
+  {preset === 'luna' && (
+    <Fragment>
+      <!-- gafas -->
+      <rect x="5" y="7" width="2" height="1" fill="#1A1E2E"/>
+      <rect x="9" y="7" width="2" height="1" fill="#1A1E2E"/>
+      <rect x="7" y="7" width="2" height="1" fill="#1A1E2E"/>
+      <rect x="5" y="6" width="2" height="1" fill="#1A1E2E"/>
+      <rect x="9" y="6" width="2" height="1" fill="#1A1E2E"/>
+    </Fragment>
+  )}
+  {preset === 'kai' && (
+    <Fragment>
+      <!-- espada al costado -->
+      <rect x="13" y="11" width="1" height="5" fill="#C0C0C0"/>
+      <rect x="12" y="10" width="3" height="1" fill={p.accent}/>
+    </Fragment>
+  )}
+</svg>

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.local
+.DS_Store
+*.log
+
+# docs confidenciales — no publicar en repo público
+HermesCraft_Brand_Narrative.pdf
+HermesCraft_Investor_Deck*.pdf
+*.pdf
