@@ -4,17 +4,31 @@ const steps = [
   { n: '2', time: '8s',  action: 'Preview del SOUL',              response: 'Ves las skills y la personalidad' },
   { n: '3', time: '15s', action: 'Elegís el mundo',               response: 'Tu server o uno de los nuestros' },
   { n: '4', time: '22s', action: 'Agregás el bot a Telegram',     response: 'Primer "hola" de tu Hermes' },
-  { n: '5', time: '30s', action: '"Hi Steve, build with me"',     response: 'Aparece al lado tuyo. Empiezan a jugar.' },
+  { n: '5', time: '30s', action: '"Hi Hermes, build with me"',    response: 'Aparece al lado tuyo. Empiezan a jugar.' },
 ];
 
-const capabilities = [
-  { icon: '⛏', label: 'Minar y craftear', desc: 'Junta materiales, te acompaña al nether o a las minas' },
-  { icon: '🏠', label: 'Construir juntos', desc: 'Le decís "hagamos un castillo" y lo arma contigo, bloque a bloque' },
-  { icon: '💬', label: 'Conversar',         desc: 'Chat natural en el juego. Habla como amigo, no como manual' },
-  { icon: '⚔',  label: 'Pelear a tu lado', desc: 'Te defiende de mobs, coordina estrategias de combate' },
-  { icon: '📖', label: 'Crear aventuras',  desc: 'Transforma tu mapa en un juego de rol basado en tus libros' },
-  { icon: '🧠', label: 'Recordarte',         desc: 'No se olvida. Memoria persistente entre sesiones y mundos' },
+import fs from 'node:fs';
+import path from 'node:path';
+
+const capabilitiesRaw = [
+  { id: 'mine',   icon: '⛏', label: 'Minar y craftear', desc: 'Junta materiales, te acompaña al nether o a las minas' },
+  { id: 'build',  icon: '🏠', label: 'Construir juntos', desc: 'Le decís "hagamos un castillo" y lo arma contigo, bloque a bloque' },
+  { id: 'chat',   icon: '💬', label: 'Conversar',         desc: 'Chat natural en el juego. Habla como amigo, no como manual' },
+  { id: 'fight',  icon: '⚔',  label: 'Pelear a tu lado', desc: 'Te defiende de mobs, coordina estrategias de combate' },
+  { id: 'quest',  icon: '📖', label: 'Crear aventuras',  desc: 'Transforma tu mapa en un juego de rol basado en tus libros' },
+  { id: 'memory', icon: '🧠', label: 'Recordarte',         desc: 'No se olvida. Memoria persistente entre sesiones y mundos' },
 ];
+
+const imgDir = path.join(process.cwd(), 'public', 'img', 'capabilities');
+const resolveImg = (id: string): string | null => {
+  for (const ext of ['png', 'webp', 'jpg']) {
+    const rel = `/img/capabilities/${id}.${ext}`;
+    if (fs.existsSync(path.join(imgDir, `${id}.${ext}`))) return rel;
+  }
+  return null;
+};
+
+const capabilities = capabilitiesRaw.map((c) => ({ ...c, img: resolveImg(c.id) }));
 ---
 <section id="como-funciona" class="relative py-24 md:py-32 bg-cream">
   <div class="absolute top-0 inset-x-0 h-6 bg-grass-dark" style="box-shadow: inset 0 4px 0 0 #7CAC50;"></div>
@@ -61,10 +75,30 @@ const capabilities = [
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {capabilities.map((c) => (
-        <div class="bg-sky-light border-4 border-sky-deep p-5 hover:bg-sky transition-colors" style="box-shadow: inset 0 -4px 0 0 rgba(0,0,0,0.15), inset 0 4px 0 0 rgba(255,255,255,0.5);">
-          <div class="text-3xl mb-2">{c.icon}</div>
-          <div class="font-serif font-bold text-lg text-ink mb-1">{c.label}</div>
-          <div class="text-sm text-ink/75">{c.desc}</div>
+        <div class="cap-card group bg-sky-light border-4 border-sky-deep overflow-hidden hover:bg-sky transition-colors" style="box-shadow: inset 0 -4px 0 0 rgba(0,0,0,0.15), inset 0 4px 0 0 rgba(255,255,255,0.5);">
+          <div class="relative w-full aspect-[4/3] bg-sky-deep/10 overflow-hidden">
+            {c.img ? (
+              <img
+                src={c.img}
+                alt={c.label}
+                loading="lazy"
+                decoding="async"
+                class="cap-img absolute inset-0 w-full h-full object-cover"
+                style="image-rendering: pixelated;"
+              />
+            ) : (
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-6xl">{c.icon}</span>
+              </div>
+            )}
+            <span class="absolute top-2 left-2 font-display text-[10px] uppercase tracking-wider bg-ink text-cream px-1.5 py-0.5">
+              {c.icon} {c.id}
+            </span>
+          </div>
+          <div class="p-5">
+            <div class="font-serif font-bold text-lg text-ink mb-1">{c.label}</div>
+            <div class="text-sm text-ink/75">{c.desc}</div>
+          </div>
         </div>
       ))}
     </div>
@@ -72,3 +106,15 @@ const capabilities = [
 
   <div class="absolute bottom-0 inset-x-0 h-6 bg-grass-dark" style="box-shadow: inset 0 -4px 0 0 #3B7A2E;"></div>
 </section>
+
+<style>
+  .cap-card { transition: transform 200ms ease-out; }
+  .cap-img  { transition: transform 350ms ease-out; }
+  .cap-card:hover { transform: translateY(-4px); }
+  .cap-card:hover .cap-img { transform: scale(1.06); }
+  @media (prefers-reduced-motion: reduce) {
+    .cap-card, .cap-img { transition: none; }
+    .cap-card:hover { transform: none; }
+    .cap-card:hover .cap-img { transform: none; }
+  }
+</style>
