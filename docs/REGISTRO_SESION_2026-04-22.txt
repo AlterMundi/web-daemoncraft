@@ -1,0 +1,209 @@
+# DaemonCraft — Registro de Sesión de Trabajo
+
+**Fecha:** 2026-04-22  
+**Participantes:** Nico (humano), Kimi (IA orquestadora)  
+**Duración:** Sesión extensa (múltiples ciclos)  
+**Objetivo:** Rebrand de HermesCraft a DaemonCraft, posicionamiento, marketing, web, y activación de sistema multi-agente.
+
+---
+
+## 1. REBRANDING: HERMESCRAFT → DAEMONCRAFT
+
+### Decisión de nombre
+- Se descartó seguir con "HermesCraft" porque Hermes ya tiene asociaciones previas en el proyecto.
+- Se eligió **DaemonCraft** por su triple resonancia:
+  1. **Técnica:** En sistemas Unix, un daemon es un proceso persistente en segundo plano.
+  2. **Mitología:** El daemon de Sócrates era un espíritu guía; Hermes conectaba mundos.
+  3. **Gaming:** Resuena en Doom, Warhammer 40K, Diablo.
+
+### Cambios realizados en la web
+- Renombrado todo el proyecto a DaemonCraft
+- Nueva paleta: Daemon Orange (#FF5722), Cyan Glow (#00E5FF), Void Black (#0B0C15)
+- Tipografía: Fredoka (display), Nunito (body), Press Start 2P (UI gaming)
+- Estética Minecraft pixelada con cielo animado, bloques, sol pixelado, nubes drift
+- Landing page completa con:
+  - Hero con daemon 3D (skinview3d)
+  - 4 SOULs: Leñador, Arquitecta, Tutora, Guerrero
+  - Timeline de onboarding (30 segundos)
+  - Sección para padres (reportes Telegram)
+  - Pricing: Free / Companion ($5) / Creator ($15) / School ($99)
+  - Sección seed round / crowdfunding
+- Componente SteveDaemon3D con skin-daemon.png
+
+---
+
+## 2. DOCUMENTOS ESTRATÉGICOS CREADOS
+
+| Documento | Ubicación | Estado |
+|-----------|-----------|--------|
+| Plan Maestro Multi-Agente | PLAN.md | ✅ Completo |
+| Investigación de Influencers | INVESTIGACION_INFLUENCERS.md | ✅ 200+ perfiles |
+| Deck de Inversores (Seed) | DECK_DAEMONCRAFT_SEED.md | ✅ 15 slides |
+| Calendario Redes Sociales | CONTENT_REDES_SOCIALES.md | ✅ 30 posts |
+| Email Funnel Onboarding | EMAIL_FUNNEL.md | ✅ 5 emails |
+| Video Script Demo (60s) | VIDEO_SCRIPT_DEMO.md | ✅ Completo |
+| Prompt Skin 3D Daemon | SKIN_DAEMON_PROMPT.md | ✅ Listo para generar |
+| Estrategia General | DAEMONCRAFT_STRATEGY.md | ✅ Base previa |
+
+---
+
+## 3. SISTEMA MULTI-AGENTE ACTIVADO
+
+### Agentes definidos
+| Agente | Rol | Dueño | Estado |
+|--------|-----|-------|--------|
+| Producto | Roadmap, SOULs, gameplay, UX | Nico | 🟡 Activo |
+| Marca | Identidad, web, copy, video, assets | Nico + diseñadores | 🟡 Activo |
+| Growth | Adquisición, retención, marketing, ventas | Nico + community | 🟡 Activo |
+| Tech | Backend, IA, infra, seguridad, bots | Nico + devs | 🔴 Pendiente |
+| Comunidad | Discord, beta testers, soporte | Nico | 🟡 Activo |
+| Orquestador | Sincronización, priorización | Nico + IA | 🟡 Activo |
+
+### Infraestructura de memoria
+- **Obsidian vault:** ~/Documents/Obsidian Vault/DaemonCraft/
+  - Estructura por agente
+  - Documentos estratégicos sincronizados
+  - Memoria activa y reuniones
+- **Repos GitHub:**
+  - DeamonCraft-web (la web)
+  - MarketingMultiagentes (marketing y contenido)
+
+---
+
+## 4. BOTS TELEGRAM
+
+### Bot #1: Publicador Daemon
+- Distribuye contenido a blog, redes sociales, newsletter
+- Comandos: /post blog/x/ig/newsletter, /schedule, /metrics
+- Stack: Python + python-telegram-bot + FastAPI
+- Integraciones: GitHub API, X API, Instagram Graph API, ConvertKit
+
+### Bot #2: Daemon Concierge
+- Soporte técnico con RAG (embeddings sobre docs)
+- Ventas y onboarding (explica planes, guía signup, agenda demos)
+- Reportes para padres (resúmenes diarios/semanales, Guardian Mode alerts)
+- Feedback loop (NPS, encuestas, bug reports)
+- Stack: Python + python-telegram-bot + LangChain + OpenAI
+
+---
+
+## 5. DASHBOARD DE SEGUIMIENTO
+
+- Visualización en tiempo real de agentes (Kanban por agente)
+- Diagrama de flujo con dependencias
+- Métricas: usuarios, MRR, agentes conectados, posts, emails
+- Feed de actividad
+- Alertas de bloqueos
+- Stack: Next.js + Tailwind + Recharts
+
+---
+
+## 6. INVESTIGACIÓN DE INFLUENCERS
+
+### Categorías mapeadas
+- **Minecraft:** 100+ YouTubers/Streamers (Dream, MrBeast, Grian, Mumbo Jumbo, Philza, Fundy, etc.)
+- **IA/Agentes:** 50+ thought leaders (Karpathy, Swyx, Yohei Nakajima, CrewAI, etc.)
+- **Gaming general:** 50+ cross-over influencers
+- **Hispanohablantes:** Vegetta777, Spreen, Roier, Cellbit, DotCSV, Santiago Valdarrama, etc.
+
+### Estrategia de outreach
+- Fase 1: Validación técnica (AI builders + Minecraft técnicos)
+- Fase 2: Validación cultural (creadores de contenido familiar)
+- Fase 3: Escalamiento (newsletters, podcasts, medios)
+- Fase 4: Eventos (speedruns, build battles)
+
+---
+
+## 7. DECISIONES PENDIENTES
+
+| Decisión | Opciones | Impacto |
+|----------|----------|---------|
+| Stack backend | Node.js vs Python vs Go | Crítico |
+| LLM principal | OpenAI vs Anthropic vs Mistral | Crítico |
+| Proveedor cloud | AWS vs GCP vs Vercel/Modal | Alto |
+| Base de datos | PostgreSQL vs Supabase | Medio |
+| Email marketing | ConvertKit vs Resend vs Mailchimp | Medio |
+| Analytics | Mixpanel vs Amplitude vs PostHog | Medio |
+
+---
+
+## 8. PRÓXIMOS PASOS DEFINIDOS
+
+### Inmediato (esta semana)
+- [ ] Generar skin 3D del daemon (usar prompt con nano-banana)
+- [ ] Crear cuenta de X/Twitter para DaemonCraft
+- [ ] Enviar primeros 10 DMs a influencers técnicos
+- [ ] Setup Discord server
+- [ ] Definir stack técnico (backend, LLM, cloud)
+
+### Corto plazo (este mes)
+- [ ] MVP técnico: agente que se conecte y responda en Minecraft
+- [ ] Publicar blog técnico en Dev.to / Indie Hackers
+- [ ] Submit a newsletters de AI
+- [ ] 1000 emails en waitlist
+- [ ] Primer video de influencer publicado
+
+### Medio plazo (3 meses)
+- [ ] Public launch v1.0
+- [ ] Seed round ($450K)
+- [ ] Guardian Mode activo
+- [ ] 1000+ usuarios
+
+---
+
+## 9. MÉTRICAS NORTE
+
+| Métrica | Fase 0 | Fase 1 (M3) | Fase 2 (M6) | Fase 3 (M12) |
+|---------|--------|-------------|-------------|--------------|
+| Waitlist emails | 100 | 500 | 2000 | 10000 |
+| Usuarios activos | 0 | 200 | 1000 | 10000 |
+| MRR | $0 | $200 | $3000 | $20000 |
+| Retención D7 | — | 30% | 40% | 50% |
+| NPS | — | 20 | 40 | 50 |
+| Discord members | 100 | 500 | 1000 | 5000 |
+| X followers | 50 | 500 | 2000 | 10000 |
+
+---
+
+## 10. ARCHIVOS GENERADOS EN ESTA SESIÓN
+
+### En /home/saira/web/hermescraft/ (web local)
+- PLAN.md
+- INVESTIGACION_INFLUENCERS.md
+- DECK_DAEMONCRAFT_SEED.md
+- CONTENT_REDES_SOCIALES.md
+- EMAIL_FUNNEL.md
+- VIDEO_SCRIPT_DEMO.md
+- SKIN_DAEMON_PROMPT.md
+- DAEMONCRAFT_STRATEGY.md
+- README.md
+- src/ (código Astro completo)
+- public/ (assets)
+- docs/ (BOT_PUBLICADOR.md, BOT_CONCIERGE.md, DASHBOARD.md)
+
+### En ~/Documents/Obsidian Vault/DaemonCraft/
+- Estructura completa por agente
+- Todos los documentos estratégicos sincronizados
+- Specs de bots y dashboard
+- Registro de reuniones
+
+### En repos GitHub
+- **DeamonCraft-web:** Web completa + docs
+- **MarketingMultiagentes:** Estructura inicial de marketing
+
+---
+
+## 11. NOTAS Y OBSERVACIONES
+
+- El rebrand de Hermes a Daemon fue consensuado por la fortaleza narrativa del término.
+- La landing page usa Astro con React islands para el componente 3D.
+- El sistema de memoria entre sesiones es el diferenciador clave frente a NPCs tradicionales.
+- El ángulo educativo + supervisión parental es el nicho defensible contra competidores grandes.
+- La "Primera Camada" es la narrativa de early adopters que construye comunidad desde el día 1.
+- Los bots Telegram son infraestructura crítica tanto para operación como para comunidad.
+- El dashboard es necesario para que el equipo (humano + IA) tenga visibilidad del estado del proyecto.
+
+---
+
+*Registro generado por Kimi (IA orquestadora) — 2026-04-22*
+*Última actualización: fin de sesión*

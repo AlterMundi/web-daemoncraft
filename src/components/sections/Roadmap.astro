@@ -2,34 +2,38 @@
 const fases = [
   {
     n: '01',
-    time: '0–1 mes',
-    niño: 'Un compañero que mina, construye y charla de igual a igual.',
-    familia: 'Configuración de perfil por Telegram. Primeras preguntas de Daemon.',
+    time: 'Abril 2026',
+    title: 'Fundamentos',
+    niño: 'MVP jugable: el Daemon se conecta, responde y puede construir.',
+    familia: 'Landing page completa. Waitlist de 100+ interesados.',
   },
   {
     n: '02',
-    time: '1–3 meses',
-    niño: 'Aventuras de rol generadas por IA basadas en sus libros o ideas.',
-    familia: 'Reportes semanales con logros y observaciones emocionales.',
+    time: 'Mayo–Junio 2026',
+    title: 'Primera Camada',
+    niño: 'Beta con 200 usuarios. Memoria persistente funcionando. Reportes Telegram activos.',
+    familia: 'Acceso beta. Resúmenes semanales del progreso del niño.',
   },
   {
     n: '03',
-    time: '3–6 meses',
-    niño: 'Desafíos lógicos y de prompting escalados a su nivel escolar.',
-    familia: 'Dashboard de habilidades desarrolladas. Sugerencias para reforzar en casa.',
+    time: 'Julio–Septiembre 2026',
+    title: 'Invocación Pública',
+    niño: 'Launch público v1.0. Guardian Mode + Adventure Packs + Marketplace de SOULs.',
+    familia: '1000+ usuarios activos. Seguridad COPPA/GDPR completa. Dashboard pedagógico.',
   },
   {
     n: '04',
-    time: '6+ meses',
-    niño: 'Servidores compartidos entre amigos. Daemon como moderador social.',
-    familia: 'Comunidad de familias. Mercado de aventuras y perfiles.',
+    time: 'Octubre 2026+',
+    title: 'El Reino de los Daemons',
+    niño: '10K+ usuarios. Multi-daemon (varios en un servidor). VR/AR. Expansión a otros juegos.',
+    familia: 'Comunidad global. Ecosistema de creadores. Series A en camino.',
   },
 ];
 ---
 <section id="roadmap" class="relative py-24 md:py-36">
   <div class="container-narrow">
     <div class="max-w-3xl mb-16">
-      <span class="h-mini">05 / Roadmap</span>
+      <span class="h-mini">08 / Roadmap</span>
       <div class="w-12 h-0.5 bg-daemon mt-3 mb-6"></div>
       <h2 class="h-display">De compañero a ecosistema</h2>
     </div>
@@ -45,13 +49,16 @@ const fases = [
             <div class={i % 2 === 0 ? 'md:text-right' : ''}>
               <div class={`inline-flex items-center gap-3 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 <span class="block-icon !w-4 !h-4"></span>
-                <span class="font-display text-daemon text-xs">FASE {f.n}</span>
+                <div>
+                  <span class="font-display text-daemon text-xs">FASE {f.n}</span>
+                  <span class="font-serif italic text-daemon text-sm ml-3">{f.title}</span>
+                </div>
               </div>
               <div class="font-mono text-[11px] uppercase tracking-widest text-teal-digital mt-2 mb-4">{f.time}</div>
               <div class={`space-y-3 ${i % 2 === 0 ? 'md:ml-auto md:max-w-sm' : 'md:max-w-sm'}`}>
                 <div>
                   <div class="font-mono text-[10px] uppercase tracking-wider text-cream/50 mb-1">El niño vive</div>
-                  <p class="text-cream/90">{f.niño}</p>
+                  <p class="text-cream/90 text-sm">{f.niño}</p>
                 </div>
                 <div>
                   <div class="font-mono text-[10px] uppercase tracking-wider text-cream/50 mb-1">La familia recibe</div>

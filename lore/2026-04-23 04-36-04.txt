@@ -1,0 +1,187 @@
+Se movía, volvió diciendo sí, me habla y camina, ya está, hasta acá llegué ¿no?
+Ya es que vi, entonces le dije bueno, agarra eso con el researcher y generada
+Oiso, quería hacer algo esto, osea yo le diría, agarra eso, no sé si el researcher tiene
+como, faltaría como la vuelta del curriculum expert o una mierda así, pero como esto tiene
+todas sus primitivas, es decirle, recorre todas las primitivas, osea el researcher
+que lo que haga es agarrar cada primitiva, evaluarla, ver en que está o está
+si está en un menos de tanto por ciento, como sea el escor que tiene, digamos
+el escor está en menos de tanto, está más bien fallando
+que la siga y trate de mejorar, si no logra después tanta iteración que que deje
+y que cierra la siguiente primitiva, y que le vaya dando vueltas a todas las primitivas
+y que mejoren todas las primitivas porque también las primitivas
+mejoran porque mejoran las otras porque se combinan, entonces si haces esto
+como toda una iteración es una explorada de 4 o 5 vueltas en todas las primitivas
+primero en las más básicas, la de movimiento, la de picada, agarrar, esas
+que estén lo más pulidas posible, que den lo más perfectas posible
+y después las demás que vayan haciendo iteraciones y perfeccionando
+y cuando las parece que se mueven y hace todo
+que las primitivas son suficientemente funcionales
+después empieza, yo lo metería en un ciclo como el de Voyager
+que es esto que tiene, un currículum expert
+que es un tipo que le va diseñando planes de estudio
+entonces lo va poniendo a hacer cosas caras más complejas
+y vos podés meter cosas ahí en ese currículum o el bicho se inventa
+o sea es un LLM especialista en Minecraft y le va a terminar diciendo
+bueno, ahora nadie hace una mina de vierro
+el tipo tiene que activar un golem, hacer no sé qué ver, 8000 pasos
+y tiene que usar todas las primitivas que tiene para ir verificando el golem si sigue ahí
+si, bueno, sigo
+tiene que entender por eso es que
+por eso es que que esté como es Hermes
+que está como entiendo a que está en ese mundo que está
+y lo accione con mc lo que sea
+las mc lo que sea tienen que ser suficientemente complejas
+o para que juntándola pueda acorralar un golem hacer esto construir
+y cuando no alcanza tiene que lograr darse cuenta
+las primitivas que tengo no logran resolver en 200 situaciones
+no logran resolver aquello así que qué primitivas me faltaría
+y ahí es donde está el MET el que está atrás
+te conozco yo decía que esto es de un ciclo entre un ciclo entre un ciclo
+como hay uno atrás que se que programó las primitivas
+que está mirando cuando el otro le está costando demasiado
+con las primitivas que tiene a resolver las tareas del currículo
+y dice ah, capaz si le agredo esta otra primitiva le resolvería todas estas
+entonces mira eso y le tira a la otra primitiva
+y el currículo tendría que decirle
+te lleva a toda la primitiva, juega de nuevo con esta parte del currículo
+y en ese ciclo truco truco truco truco truco truco
+según hay un mega experto en mucho
+no para
+ese es el ciclo que yo quiero amar
+si armamos eso a habitar el mundo de Minecraft
+como el más especialista habitante del mundo de Minecraft
+y va a empezar a encontrar cosas super locas
+cuando se le acabe
+lo normal va a empezar a ser fruta loca
+y va a empezar a pasar estas cosas dedicó
+de 47 movidas más allá pasó tal cosa
+y se te va a sorprender las cosas que el bicho va a empezar a hacer
+una de las cosas que habíamos dicho con los chicos
+y que eso pasó y quedó en nada
+es esto de que el bicho pudiera
+de que adentro del mundo
+al bicho le puedes decir que dibuje cosas
+que las vas a generar como modelo imprimido
+y eso tiene resolución
+un bloque de un milímetro
+lo definís como y chao el bicho agarre
+y te dibuja la cosa
+y lo discutís con el bicho y no así no
+y el bicho va a estar ahí
+y eso tendría que ser un Hermes OpenSD
+cada atrás con exporta Minecraft
+como un pipeline ahí
+que el bicho tira mc build esta mierda
+se lo tira y vuelve
+y entiende como tiene que ir corregiendo ese pipeline
+para que salga la mierda de mi el niño
+la mierda no salió igual
+se tiene que mandarle cosas y decirle
+fíjate que esto no puc
+y atrás está el vaso
+que hace OpenSDK
+que recibe todos los pedidos
+todos los putos
+para que te asignen el martillito
+el de Pabro
+este es el de Pabro
+inside
+que justo a él iba a mirarlo del OpenSDK
+que hay un skill
+a ver que hacía
+no para esta mierda
+es imposible de divertir
+para allá puedo
+todo el setup que armamos
+esto es una locura
+esto volvió de que en dos días
+a mí me explotó el coce de en dos días
+vos estás ahora haciendo lo que yo estaba haciendo
+después de unos días
+estamos muy bien
+y yo estoy haciendo solo con Quimi
+no hago nada más que Quimi
+lo mismo que estamos haciendo
+entonces esta mierda es imposible
+como ocurre que se llega o no
+el tipo se tropiza en las escalones
+y el tuyo ya resolvió con el
+no sé por qué este todavía ni sé
+qué me voy a hacer
+pero
+está bueno que podamos entender eso también
+y le quería pretender el auto research
+pero capaz me iba a mirarte
+no sé
+tu fork, tu coso
+decirle bueno ahora que llegaste hasta acá
+me telé al auto research
+con el pasito
+con cada cosito
+el guay ayer tiene un concepto
+que es el skill library
+que tiene como versiones
+con calificación
+de cada skill
+las soluciones que hizo
+y ese tipo de cosas
+y ahí es capaz
+hay que encargar
+claro
+entonces por lo que si tiene dos o tres formas
+de solucionar lo mismo de la misma manera
+también las puede round-robinar
+entonces no lo ves siempre
+hacer exactamente lo mismo
+que corto una bolita
+a veces le pegamos alto por allá
+porque igual le da
+para aquí antes lo mismo
+que es lo que haces vos
+si
+o no vas a encarar siempre algo
+no, a la tierra
+bien, listo
+resumen y iteración
+bot solo recorrendo el localhost
+con entrada perfil steam
+criado con 114 turns
+27 turns
+27 mangroves
+son otros mangroves
+que activan el perfil
+para las permitidas hermescraft
+expuestas como turns individuales
+para abrir una ventana
+y ver al bot en acción
+abre un terminal nuevo
+y corre hermespe steam chat
+le puedo hablar
+decirle algo
+para Federico
+digamos listo
+para ver si alguien
+que me dijo nada
+hermespe steam chat
+no
+setby
+ah, se dijo
+casi
+es un porro
+yo si
+le mencioné en paralelo el otro sello
+no entiendo si esta cruzando en la misma sesión
+dos conversaciones
+y la separa y te habla
+pero de repente la cruza porque puede
+si, si
+la de tele
+gran ponerle es como gran
+ahora si te tengo la grabación
+si
+a eso es todo eso
+a los putos dentro de 5000 años
+así nace otro lado de la cosa del demoncraft
+18 horas
+hoy se movieron
+volvieron a ver

@@ -4,23 +4,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        // === Daemon Core palette ===
+        // === DaemonCraft 2026 Branding ===
+        // Daemon = Tu compañero (Cyan life)
         daemon: {
-          DEFAULT: '#FF5722',   // naranja fuego — acento principal
-          light: '#FF8A65',
-          dark: '#E64A19',
-          glow: 'rgba(255,87,34,0.4)',
-        },
-        cyan: {
-          DEFAULT: '#00E5FF',   // acento tech/secundario
+          DEFAULT: '#00D9FF',   // Daemon Cyan — presencia viva
           light: '#80EAFF',
           dark: '#00B8D4',
-          glow: 'rgba(0,229,255,0.3)',
+          glow: 'rgba(0, 217, 255, 0.4)',
+        },
+        // Holodeck = Tu mundo (Gold generation)
+        holodeck: {
+          DEFAULT: '#FFB800',   // Gold Accent — importancia, CTAs
+          light: '#FFD149',
+          dark: '#FF9C00',
+          glow: 'rgba(255, 184, 0, 0.3)',
+        },
+        // Role Master = Tu director (Purple orchestration)
+        rolemaster: {
+          DEFAULT: '#2D1B4E',   // Deep Purple — misterio, profundidad
+          light: '#4A3A7A',
+          dark: '#1A0F2E',
+          glow: 'rgba(45, 27, 78, 0.3)',
+        },
+        // Base neutrals
+        navy: {
+          DEFAULT: '#0A1428',   // Dark Navy — fondo principal
+          light: '#1F2A4A',
+          lighter: '#2D3E5F',
+          deep: '#050B15',
         },
         void: {
-          DEFAULT: '#0B0C15',   // fondo principal
-          light: '#151725',     // superficie
-          deep: '#05060A',      // fondo profundo
+          DEFAULT: '#0A1428',   // alias para navy
+          light: '#1F2A4A',
+          deep: '#050B15',
         },
         // Minecraft daytime palette (mantenido para compatibilidad visual MC)
         sky: {
@@ -64,10 +80,11 @@ export default {
         ink: '#1F2933',
       },
       fontFamily: {
-        display: ['"Press Start 2P"', 'monospace'],
-        mono: ['"Monocraft"', '"JetBrains Mono"', 'monospace'],
-        sans: ['"Nunito"', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['"Fredoka"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Russo One"', '"Press Start 2P"', 'sans-serif'],
+        pixel: ['"Press Start 2P"', 'monospace'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"Chakra Petch"', 'Inter', 'system-ui', 'sans-serif'],
+        body: ['"Chakra Petch"', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'pixel': '4px 4px 0 0 rgba(0,0,0,0.25)',

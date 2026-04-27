@@ -1,0 +1,189 @@
+Por eso no te quiero cortar el flow de lo que estás armando, para mí este que vos estás armando funciona como un pedazo de máquina seguro, independientemente de que lo otro entre los agentes nuestros estén en otra arquitectura.
+Así que eso es eso, y me parece que está perfecto, que de hecho puede ser la punta en loop de algo en lo que los demás bichos están participando.
+Claro, eso flashé yo.
+Es como cuál es la entrada-salida de ese sistema compuesto, digamos.
+Que termine haciendo ahí como el CEO o el Hermes Prime, digamos, el Hermes Prime puede decir, yo tengo todo este conocimiento, esta capacidad, todo esto acá atrás mío, pueden hablar conmigo, yo administro el permiso y todo, sobre esto es más cómodo.
+Sí, sí, yo lo que pensaba es que podría ser un repo que ya la impresita, como que vos vas a agarrar la impresita y darse la al tu agente.
+De eso ya hay varios hinchos, ¿eh?
+Sí, sí.
+Mira lo que hicieron, para mí todo falló pa como lo que yo miré de los agentes y todo lo anda.
+Claro.
+Y participa de las mismas mierdas, como, bueno, y Hermes está en el borde, o sea, Hermes porque lo empezaron a mirar mucho y actualizan, actualizan, actualizan, pero es como...
+Y es lo que hay.
+Sofa, el mismo tiempo.
+Sofa de mierda.
+Es muy derrota, pero bueno, ahora todo es así.
+Pero no hay que pensar que ya está hecho, lo que parece que está hecho, porque no está un carajo.
+No, no, no, no, estamos en la punta de la hora.
+En Hermes y ya, ah, bueno, a mi a mi a mi lo mire y se, uy, no, ya está hecho.
+Aparte, en dos meses va a ser viejo todo esto.
+Sí.
+Sí.
+Entonces, pero hay una cosa que yo, que me parece que está bueno aprovechar que estamos.
+No sé qué pito hizo.
+¿Qué hizo, Ani?
+¡Ani!
+¿Esa tiene la maca acá?
+La maca.
+La maca, ya tiene.
+La maca, ya.
+La de la maca, Ani.
+Bueno, whatever.
+Pero, me parece que tenemos que pensar que acordar más claramente sobre la cosa layer
+que comunica nuestros agentes.
+Que yo era lo que yo había empezado a armar, que era esto del LCM, que lo llamé Finet,
+y por ahí hablaba un poco el que se yo.
+Yo había implementado adentro, por ejemplo, el chat interno del Minecraft se comunicaba por Finet,
+entonces podía salir a Telegram, por ejemplo.
+Y hueltitas así.
+Y eso se vuelve un layer que todos pueden usar.
+Entonces, tenés todos los mensajes ahí adentro.
+Si hay mensajes de Minecraft, los metés en el cozo, porque después decidís quién es
+que interesa que se suscriba, ¿no?
+y quién es que interesa que tenga un endpoint describible, o no?
+O sea, que le pueden hablar al Minecraft, ¿no?
+Eso extiende la lógica del Gateway que usan estos bichos, ¿no?
+Que usan un Gateway que runtea mensajes a las sesiones a partir de los orígenes.
+Claro.
+¿No? Mantenen ese estado.
+Esto sería una capa como arriba de eso, es como la capa entre Gateway.
+Claro.
+Porque a vos te puedes llegar a tu Gateway este mensajito,
+porque viene de esta cosa que interconecta con nosotros,
+que es la conexión más directa que hay.
+Habla de socket-to-socket por el SM.
+Entonces, en el Gateway es como inclusiva está por encima del Gateway,
+tener estas cosas que decimos que son los almas que están arriba
+del economía que puse.
+Agent.
+¿No sé qué leía?
+Agent.
+Apple.
+Apple tiene portability.
+Leía.
+No tenemos eso, porque es un muy buen nombre.
+Agent, portability, leía.
+Lo que habla eso, o sea, la capa de arriba del APL
+se conecta a Finet, como se llama.
+Para la cosa del SM, esto, al PubSum.
+Esa idea.
+Mantenemos en nuestra capa la parte red.
+Nuestro sistema autónomo, la bergamel y todo eso,
+tiene sentido porque somos la capa de arriba del APL.
+O sea, no le hacemos a OpenClub un plugin
+para que hable lo que hablan, las cosas que hablan arriba del APL.
+Le hacemos solo un plugin para que hable APL.
+Vele, si decir, quiero mover esta alma
+a aquel punto de la APL.
+Me quiero materializar allá.
+Lo haces arriba de nuestras redes.
+Allí abajo puede que haya un OpenClub,
+que haya un PIC, que haya cualquier verga custom,
+pero que arriba implementa APL,
+o sea, que tu agent se puede portar
+y expones con el.
+Tengo bojito a tu agent.
+Igual y vuelvo y el storage...
+Dítuli.
+O sea, el campo morfogenético
+es la capa de memoria de arriba del APL.
+Esa es toda la arquitectura.
+¡Grabaste!
+¡Grabaste!
+¡Es muy lento!
+¡Grabaste!
+¡Grabaste esto!
+¿Estamos a acuerdo de que entendemos
+que es verdad o no?
+Claro.
+Y tiene stack.
+Tiene donde sentarse.
+O sea, es el LibreMesh.
+Ya hicimos esto.
+Y anoche, no sé si recorda
+¿Dónde recorda?
+¿Dónde recorda?
+Anoche nos está pagando
+que dijiste que tenía LibreMesh
+y dejaste solo un pedazo que sirva
+para poder hablar por él.
+Es verdad que es el LibreMesh
+y que ese era el Dimon.
+Claro.
+Dimon.
+Que es el Dimon...
+¡Ah!
+¡Es el Dimon!
+Es el Dimon que habla
+la cosa del APL.
+O sea, es eso.
+O sea, que toda esta falopa
+no falopa.
+O sea, el campo morfogenético
+de la IA
+es en lo que evoluciona con el Dimon.
+Se lo repartimos, se lo reportamos así.
+Mira, escribimos este librito
+y bueno, a partir de este librito
+tenemos unas ideas muy locas.
+Por ejemplo, este perrito que te canta.
+Estas de mancras que te apaga el fuego.
+Pero bueno, el fuego no lo apaga
+porque está dentro de mancras.
+Pero no sabría cómo apagarlo.
+Comprase el servicio.
+Que eso está bueno.
+O sea, mostramos como reacciones
+nuestro sistema de los incendios
+que existen
+si nos contrataran.
+Para aprender incendios.
+¿Cómo se pedía que el ecosistema
+si nos hubieras contratado hace un año?
+Hace dos.
+Hace tres.
+Ah, ah, ah.
+Un bloque.
+Es que estamos en un universo
+paralelo de la creación.
+Me habilitas,
+pero te ayo y me decís que hay pez.
+Tiene cada cosa.
+¿Más cosas ahí?
+La Mac.
+Ah, que anoté como Mac.
+No era la Mac, entonces.
+Dimon.
+Sí, era solo de pajera.
+Ya todo lo sabía.
+¿Qué cosa?
+Dimoncraft.
+Es que sí, justamente.
+Mi hija jugaría Dimon.
+Dimoncraft.
+Es que por todos lados
+funciona Dimoncraft.
+Funciona por todos lados.
+Está mostrando el vuelo con Dimoncraft.
+Sí.
+Dimoncraft.
+Dimoncraft.
+Dimoncraft.
+Dimoncraft.
+Dimoncraft.
+Dimoncraft.
+Dimoncraft.
+Es lindo decirlo.
+Sí, sí.
+Quiero jugar al Dimoncraft.
+Claro.
+Aunque sea un juego mesa o sea lo que sea.
+Lo que sea. Quiero jugar, claro.
+Sí.
+Si tenés pozos, también.
+Me está, hija.
+Excelente.
+Strike of Jeans.
+Excelente.
+¿Ha nacido?
+No, ha nacido.

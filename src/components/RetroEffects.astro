@@ -1,0 +1,76 @@
+---
+// Efectos visuales de videojuego: scanlines CRT + grid perspective + starfield
+---
+
+<div class="retro-effects pointer-events-none fixed inset-0 z-[1] overflow-hidden">
+  <!-- Starfield -->
+  <div class="stars absolute inset-0 opacity-60"></div>
+
+  <!-- Grid perspective (vaporwave floor) -->
+  <div class="retro-grid absolute bottom-0 left-0 right-0 h-[55vh]"></div>
+
+  <!-- Scanlines CRT -->
+  <div class="scanlines absolute inset-0 opacity-[0.08]"></div>
+
+  <!-- Vignette -->
+  <div class="vignette absolute inset-0"></div>
+</div>
+
+<style>
+  .stars {
+    background-image:
+      radial-gradient(1px 1px at 25% 35%, #fff, transparent),
+      radial-gradient(1px 1px at 50% 70%, #00D9FF, transparent),
+      radial-gradient(1.5px 1.5px at 75% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 15% 85%, #FFB800, transparent),
+      radial-gradient(1px 1px at 85% 60%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 40% 15%, #00D9FF, transparent),
+      radial-gradient(1px 1px at 65% 45%, #fff, transparent),
+      radial-gradient(1px 1px at 10% 50%, #fff, transparent);
+    background-size: 200px 200px, 250px 250px, 300px 300px, 280px 280px, 320px 320px, 260px 260px, 240px 240px, 220px 220px;
+    animation: starshift 120s linear infinite;
+  }
+
+  @keyframes starshift {
+    from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+    to { background-position: 200px 200px, -250px 250px, 300px -300px, -280px -280px, 320px 320px, -260px 260px, 240px -240px, -220px 220px; }
+  }
+
+  .retro-grid {
+    background-image:
+      linear-gradient(to right, rgba(0, 217, 255, 0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 217, 255, 0.18) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: bottom;
+    mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    animation: gridmove 8s linear infinite;
+  }
+
+  @keyframes gridmove {
+    from { background-position: 0 0; }
+    to { background-position: 0 60px; }
+  }
+
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.15) 0px,
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: overlay;
+  }
+
+  .vignette {
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(5, 11, 21, 0.85) 100%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stars, .retro-grid {
+      animation: none;
+    }
+  }
+</style>

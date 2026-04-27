@@ -10,3 +10,9 @@ dist/
 HermesCraft_Brand_Narrative.pdf
 HermesCraft_Investor_Deck*.pdf
 *.pdf
+
+# Assets pesados (video, raw)
+video-production/
+*.mp4
+*.mov
+__pycache__/

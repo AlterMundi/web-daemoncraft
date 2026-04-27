@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GameNav from '../components/GameNav.astro';
+import RetroEffects from '../components/RetroEffects.astro';
+import MinecraftSkin from '../components/MinecraftSkin.jsx';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Contacto · DaemonCraft" description="¿Querés colaborar? Email, web y oportunidades.">
+  <RetroEffects />
+  <GameNav active="contact" />
+
+  <main class="relative z-10 pt-28">
+    <!-- HERO -->
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="inline-block mb-4 px-3 py-1 border border-holodeck/40 bg-holodeck/5">
+          <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">PARTY · LFG</span>
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl uppercase text-cream mb-6 leading-[0.95]">
+          ¿Querés <span class="bg-gradient-to-r from-daemon to-holodeck bg-clip-text text-transparent">colaborar</span>?
+        </h1>
+        <p class="text-xl text-cream/80 max-w-2xl mx-auto">
+          DaemonCraft está en Fase 0. Buscamos developers, diseñadores, soñadores.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTOS -->
+    <section class="py-12 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="mailto:info@altermundi.net" class="group p-8 border-2 border-daemon/30 hover:border-daemon bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1 block">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">✉️</span>
+              <span class="font-pixel text-[9px] tracking-[0.3em] text-daemon">▸ EMAIL</span>
+            </div>
+            <p class="font-mono text-xl text-cream group-hover:text-daemon transition mb-3 break-all">
+              info@altermundi.net
+            </p>
+            <p class="text-cream/70 text-sm">Escribinos con tu propuesta o portfolio. Respondemos en 24h.</p>
+          </a>
+
+          <a href="https://altermundi.net" target="_blank" rel="noopener" class="group p-8 border-2 border-holodeck/30 hover:border-holodeck bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1 block">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">🌐</span>
+              <span class="font-pixel text-[9px] tracking-[0.3em] text-holodeck">▸ WEB</span>
+            </div>
+            <p class="font-mono text-xl text-cream group-hover:text-holodeck transition mb-3">
+              altermundi.net
+            </p>
+            <p class="text-cream/70 text-sm">Conocé a AlterMundi: nuestra historia, otros proyectos, valores.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLES -->
+    <section class="py-20 px-6 bg-gradient-to-b from-transparent via-navy-deep/40 to-transparent">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="inline-block mb-4 px-3 py-1 border border-cream/30 bg-cream/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">CLASES DISPONIBLES</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream">
+            Sumate al desarrollo
+          </h2>
+          <p class="text-cream/75 mt-4 max-w-2xl mx-auto">
+            Estamos construyendo tecnología soberana. Si creés en IA que respeta privacidad — sumate.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { skin: 'demon-storm.png', t: 'Devs', sub: 'Backend / IA', desc: 'Backend, frontend, DevOps, ML', color: 'daemon' },
+            { skin: 'demon-astral.png', t: 'Diseño', sub: 'UX / UI', desc: 'Branding, motion, 3D, illustration', color: 'holodeck' },
+            { skin: 'demon-inferno.png', t: 'Growth', sub: 'Estrategia', desc: 'Marketing, community, partnerships', color: 'daemon' },
+            { skin: 'demon-frost.png', t: 'Otros', sub: 'Tu skill', desc: 'Educación, content, lo que sumes', color: 'holodeck' },
+          ].map((role) => (
+            <div class={`group p-6 border-2 border-${role.color}/30 hover:border-${role.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-2`}>
+              <div class="flex justify-center mb-4">
+                <MinecraftSkin
+                  client:visible
+                  skinUrl={`${base}${role.skin}`}
+                  height={180}
+                  width={130}
+                  animation="idle"
+                  speed={0.6}
+                  rotateSpeed={0.4}
+                  zoom={0.85}
+                  glowColor={role.color === 'daemon' ? 'rgba(0, 217, 255, 0.3)' : 'rgba(255, 184, 0, 0.3)'}
+                />
+              </div>
+              <h3 class={`font-display text-2xl uppercase text-${role.color} mb-1 tracking-wider`}>{role.t}</h3>
+              <p class="font-pixel text-[8px] tracking-[0.3em] text-cream/50 mb-3">▸ {role.sub.toUpperCase()}</p>
+              <p class="text-cream/75 text-sm">{role.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <button data-collab-trigger class="px-10 py-5 font-display text-lg tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_30px_rgba(255,184,0,0.4)] hover:shadow-[0_0_50px_rgba(0,217,255,0.6)] hover:scale-105 transition-all">
+            🚀 Quiero Colaborar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">F.A.Q.</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream">Preguntas frecuentes</h2>
+        </div>
+
+        <div class="space-y-4">
+          {[
+            { q: '¿Cuándo lanzan?', a: 'Fase 0 (Fundamentos): abril 2026. MVP jugable: mayo. Early access: junio.' },
+            { q: '¿Voy a tener que pagar?', a: 'Free (100 acciones/día) gratis. Companion ($5/mes) familias. Creator ($15) creadores. School ($99) educadores.' },
+            { q: '¿Mi data está segura?', a: 'Sí. Tu daemon vive en tu servidor. Tus datos NUNCA entrenan modelos. COPPA + GDPR. Borrado total con un click.' },
+            { q: '¿Puedo colaborar aunque no sea tech?', a: 'Absolutamente. Necesitamos marketing, community, diseño, educación. Si creés en lo que hacemos, hay lugar para vos.' },
+          ].map((item, i) => (
+            <details class={`group p-6 border-2 ${i % 2 === 0 ? 'border-daemon/30 hover:border-daemon' : 'border-holodeck/30 hover:border-holodeck'} bg-navy-deep/40 backdrop-blur rounded transition cursor-pointer`}>
+              <summary class={`font-display text-lg uppercase tracking-wider ${i % 2 === 0 ? 'text-daemon' : 'text-holodeck'} flex items-center justify-between list-none`}>
+                <span>{item.q}</span>
+                <span class="transition group-open:rotate-180">▼</span>
+              </summary>
+              <p class="text-cream/80 mt-4 leading-relaxed">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 px-6 border-t border-daemon/20 bg-navy-deep/60 backdrop-blur">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">⚡ DAEMONCRAFT · ALTERMUNDI · 2026</p>
+        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">SOBERANÍA · TECNOLÓGICA</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal Preventa (nav button) -->
+  <div id="preventa-modal" class="hidden fixed inset-0 bg-navy-deep/95 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+    <div class="relative bg-navy border-2 border-daemon rounded p-8 max-w-md w-full shadow-[0_0_40px_rgba(0,217,255,0.4)]">
+      <div class="absolute -top-3 left-6 px-3 py-1 bg-navy-deep border-2 border-daemon">
+        <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">SAVE GAME</span>
+      </div>
+      <button id="preventa-close" class="absolute top-4 right-4 text-cream/60 hover:text-daemon text-2xl">×</button>
+      <h2 class="font-display text-3xl uppercase text-cream mb-2 mt-2">Sumate</h2>
+      <p class="text-cream/70 text-sm mb-6">Te avisamos cuando abramos las puertas.</p>
+      <form id="preventa-form" class="space-y-4">
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ NOMBRE</label>
+          <input type="text" name="nombre" required class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none" />
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ EMAIL</label>
+          <input type="email" name="email" required class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none" />
+        </div>
+        <button type="submit" class="w-full py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded hover:scale-105 transition-all">✓ INVOCAR</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Colaboración -->
+  <div id="collab-modal" class="hidden fixed inset-0 bg-navy-deep/95 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+    <div class="relative bg-navy border-2 border-holodeck rounded p-8 max-w-md w-full shadow-[0_0_40px_rgba(255,184,0,0.4)]">
+      <div class="absolute -top-3 left-6 px-3 py-1 bg-navy-deep border-2 border-holodeck">
+        <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">PARTY · INVITE</span>
+      </div>
+      <button id="collab-close" class="absolute top-4 right-4 text-cream/60 hover:text-holodeck text-2xl">×</button>
+      <h2 class="font-display text-3xl uppercase text-cream mb-2 mt-2">Sumáte al equipo</h2>
+      <p class="text-cream/70 text-sm mb-6">Contanos quién sos y qué te interesa hacer.</p>
+
+      <form id="collab-form" class="space-y-4">
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ NOMBRE</label>
+          <input type="text" name="nombre" required class="w-full px-4 py-3 bg-navy-deep border border-holodeck/40 text-cream rounded focus:border-holodeck focus:outline-none" />
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ EMAIL</label>
+          <input type="email" name="email" required class="w-full px-4 py-3 bg-navy-deep border border-holodeck/40 text-cream rounded focus:border-holodeck focus:outline-none" />
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ ÁREA</label>
+          <select name="area" required class="w-full px-4 py-3 bg-navy-deep border border-holodeck/40 text-cream rounded focus:border-holodeck focus:outline-none">
+            <option value="">Seleccioná tu clase</option>
+            <option value="backend">Backend / IA</option>
+            <option value="frontend">Frontend</option>
+            <option value="devops">DevOps / Infra</option>
+            <option value="design">Diseño</option>
+            <option value="growth">Growth / Marketing</option>
+            <option value="community">Community</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ CONTANOS</label>
+          <textarea name="mensaje" rows="4" class="w-full px-4 py-3 bg-navy-deep border border-holodeck/40 text-cream rounded focus:border-holodeck focus:outline-none" placeholder="Tu experiencia, portfolio, por qué te interesa..."></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded hover:scale-105 transition-all">✓ ENVIAR</button>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const preventa = document.getElementById('preventa-modal');
+  const preventaClose = document.getElementById('preventa-close');
+  const preventaForm = document.getElementById('preventa-form') as HTMLFormElement | null;
+
+  const collab = document.getElementById('collab-modal');
+  const collabClose = document.getElementById('collab-close');
+  const collabForm = document.getElementById('collab-form') as HTMLFormElement | null;
+
+  document.querySelectorAll('[data-modal-trigger]').forEach((btn) => {
+    btn.addEventListener('click', () => preventa?.classList.remove('hidden'));
+  });
+  document.querySelectorAll('[data-collab-trigger]').forEach((btn) => {
+    btn.addEventListener('click', () => collab?.classList.remove('hidden'));
+  });
+
+  preventaClose?.addEventListener('click', () => preventa?.classList.add('hidden'));
+  collabClose?.addEventListener('click', () => collab?.classList.add('hidden'));
+
+  preventa?.addEventListener('click', (e) => { if (e.target === preventa) preventa.classList.add('hidden'); });
+  collab?.addEventListener('click', (e) => { if (e.target === collab) collab.classList.add('hidden'); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      preventa?.classList.add('hidden');
+      collab?.classList.add('hidden');
+    }
+  });
+
+  preventaForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(preventaForm);
+    alert(`✓ ¡Gracias ${fd.get('nombre')}! Te escribimos a ${fd.get('email')}`);
+    preventaForm.reset();
+    preventa?.classList.add('hidden');
+  });
+
+  collabForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(collabForm);
+    alert(`✓ ¡Gracias ${fd.get('nombre')}! Te contactamos pronto en ${fd.get('email')}`);
+    collabForm.reset();
+    collab?.classList.add('hidden');
+  });
+</script>
+
+<style>
+  details summary::-webkit-details-marker { display: none; }
+</style>

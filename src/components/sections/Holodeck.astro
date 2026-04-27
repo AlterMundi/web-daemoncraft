@@ -1,0 +1,156 @@
+---
+---
+<section id="holodeck" class="relative py-24 md:py-36 bg-gradient-to-b from-night-deep to-navy-900">
+  <div class="absolute inset-0 opacity-30 pointer-events-none" style="background-image: linear-gradient(45deg, #FF5722 1px, transparent 1px), linear-gradient(-45deg, #FF5722 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+  <div class="relative container-narrow">
+    <div class="max-w-4xl mx-auto mb-16">
+      <span class="h-mini text-daemon">09 / Holodeck</span>
+      <h2 class="h-display text-cream mb-6">
+        El <span class="text-daemon">Holodeck Director</span>
+      </h2>
+      <p class="text-cream/80 text-lg leading-relaxed max-w-3xl">
+        Daemon no solo juega contigo. Puede generar aventuras completas y originales de forma automática.
+        Mundos, personajes, quests, estructuras — todo creado por IA en minutos.
+      </p>
+    </div>
+
+    <!-- Pipeline visual -->
+    <div class="space-y-8 max-w-4xl mx-auto mb-16">
+      <div class="grid md:grid-cols-6 gap-3 items-center">
+        <!-- Step 1 -->
+        <div class="md:col-span-1">
+          <div class="bg-daemon border-4 border-daemon-dark p-4 text-center">
+            <div class="font-display text-3xl text-ink mb-2">💭</div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-ink">Idea</div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:flex md:col-span-1 justify-center">
+          <div class="text-daemon text-2xl">→</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="md:col-span-1">
+          <div class="bg-daemon border-4 border-daemon-dark p-4 text-center">
+            <div class="font-display text-3xl text-ink mb-2">🎨</div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-ink">Design</div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:flex md:col-span-1 justify-center">
+          <div class="text-daemon text-2xl">→</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="md:col-span-1">
+          <div class="bg-daemon border-4 border-daemon-dark p-4 text-center">
+            <div class="font-display text-3xl text-ink mb-2">🌍</div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-ink">Generar</div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:flex md:col-span-1 justify-center">
+          <div class="text-daemon text-2xl">→</div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="md:col-span-1">
+          <div class="bg-daemon border-4 border-daemon-dark p-4 text-center">
+            <div class="font-display text-3xl text-ink mb-2">▶️</div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-ink">Jugar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center text-cream/60 text-sm">
+        De conversación a aventura jugable en minutos.
+      </div>
+    </div>
+
+    <!-- Features grid -->
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+      <div class="block-card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-6 h-6 bg-daemon border-2 border-daemon-dark mt-1"></div>
+          <div>
+            <h4 class="font-serif text-lg text-cream mb-2">Diseño Automático</h4>
+            <p class="text-cream/70 text-sm">
+              Daemon genera blueprints JSON completos: terreno, biomas, personajes, estructuras, quests y línea de tiempo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-6 h-6 bg-daemon border-2 border-daemon-dark mt-1"></div>
+          <div>
+            <h4 class="font-serif text-lg text-cream mb-2">Imágenes de Referencia</h4>
+            <p class="text-cream/70 text-sm">
+              Flux/SD3 genera referencias limpias para personajes, objetos y estructuras basadas en el design.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-6 h-6 bg-daemon border-2 border-daemon-dark mt-1"></div>
+          <div>
+            <h4 class="font-serif text-lg text-cream mb-2">3D con TRELLIS.2</h4>
+            <p class="text-cream/70 text-sm">
+              Imágenes → modelos GLB 3D con texturas PBR. Microsoft TRELLIS.2 convierte arte en geometría.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-6 h-6 bg-daemon border-2 border-daemon-dark mt-1"></div>
+          <div>
+            <h4 class="font-serif text-lg text-cream mb-2">Adventure Packs</h4>
+            <p class="text-cream/70 text-sm">
+              Empaquetado automático: mundo, resource pack, datapack + quests. Cargás y jugás.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech stack -->
+    <div class="max-w-3xl mx-auto bg-navy-700/50 border-2 border-daemon/30 p-8">
+      <h4 class="font-serif text-lg text-daemon mb-4">Stack Técnico</h4>
+      <div class="grid sm:grid-cols-2 gap-6 text-sm">
+        <div>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-daemon/60 mb-2">Diseño</div>
+          <p class="text-cream/70">Role Master (LLM) → JSON blueprints</p>
+        </div>
+        <div>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-daemon/60 mb-2">Imágenes</div>
+          <p class="text-cream/70">Flux / SD3 / SDXL en ComfyUI</p>
+        </div>
+        <div>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-daemon/60 mb-2">3D</div>
+          <p class="text-cream/70">TRELLIS.2 (Microsoft) → GLB + PBR</p>
+        </div>
+        <div>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-daemon/60 mb-2">Conversión</div>
+          <p class="text-cream/70">Blockbench, ObjToSchematic, Amulet</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="text-center mt-16">
+      <p class="text-cream/80 italic text-lg max-w-2xl mx-auto">
+        "Escribís una idea. El Daemon genera el mundo. En minutos tenés una aventura completa,
+        coherente y única. Sin tocar la línea de comandos."
+      </p>
+    </div>
+  </div>
+</section>

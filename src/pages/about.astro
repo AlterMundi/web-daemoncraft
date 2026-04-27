@@ -1,0 +1,259 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GameNav from '../components/GameNav.astro';
+import RetroEffects from '../components/RetroEffects.astro';
+import MinecraftSkin from '../components/MinecraftSkin.jsx';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Sobre · DaemonCraft" description="Qué es DaemonCraft, la tecnología detrás y el equipo de AlterMundi.">
+  <RetroEffects />
+  <GameNav active="about" />
+
+  <main class="relative z-10 pt-28">
+    <!-- HERO -->
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
+          <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">SOBRE EL PROYECTO</span>
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl uppercase text-cream mb-6 leading-[0.95]">
+          ¿Qué es <span class="bg-gradient-to-r from-daemon to-holodeck bg-clip-text text-transparent">DaemonCraft</span>?
+        </h1>
+        <p class="text-xl text-cream/80 max-w-3xl leading-relaxed">
+          Un proyecto de soberanía tecnológica que reimagina cómo los agentes de IA pueden vivir junto a nosotros — en espacios que controlamos, con transparencia total.
+        </p>
+      </div>
+    </section>
+
+    <!-- LA VISIÓN -->
+    <section class="py-20 px-6 bg-navy-deep/40 border-y border-daemon/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
+              <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">CAPÍTULO 01</span>
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-6 leading-[0.95]">
+              La <span class="text-daemon neon-cyan">visión</span>
+            </h2>
+            <div class="space-y-4 text-cream/80 text-lg">
+              <p>
+                Hoy los sistemas de IA viven en servidores lejanos, entrenados con tu data, sin tu control.
+              </p>
+              <p>
+                <strong class="text-daemon">DaemonCraft es diferente.</strong> Tu daemon vive en tu servidor.
+                Tus datos jamás se envían para entrenar nada. Vos sos dueño.
+              </p>
+              <p class="text-cream/70">
+                No es magia. Es arquitectura inteligente + tecnología moderna + valores AlterMundi.
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <MinecraftSkin
+              client:visible
+              skinUrl={`${base}skin-daemon.png`}
+              height={420}
+              width={300}
+              animation="idle"
+              speed={0.5}
+              rotateSpeed={0.5}
+              zoom={0.95}
+              glowColor="rgba(0, 217, 255, 0.4)"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECNOLOGÍA -->
+    <section class="py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <div class="inline-block mb-4 px-3 py-1 border border-holodeck/40 bg-holodeck/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">CAPÍTULO 02</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
+            La <span class="text-holodeck neon-gold">tecnología</span> detrás
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: 'Daemon',
+              sub: 'El compañero',
+              color: 'daemon',
+              items: [
+                'Agente autónomo de IA',
+                'Corre 24/7 sin dormir',
+                'Memoria persistente entre sesiones',
+                'Aprendizaje local (fine-tuning)',
+                'LLM: GPT-4o + fallbacks open-source',
+              ],
+            },
+            {
+              title: 'Holodeck',
+              sub: 'El generador',
+              color: 'holodeck',
+              items: [
+                'Generación automática de aventuras',
+                'TRELLIS.2 (Microsoft) para 3D',
+                'Flux/SD3 para texturas',
+                'Conversión automática a Minecraft',
+                'Adventure Packs listos para jugar',
+              ],
+            },
+            {
+              title: 'Role Master',
+              sub: 'El orquestador',
+              color: 'daemon',
+              items: [
+                'Dirige la narrativa de tu partida',
+                'Crea desafíos personalizados',
+                'Aprende de tus preferencias',
+                'Bridge a Telegram',
+                'Reportes a familia/educadores',
+              ],
+            },
+            {
+              title: 'Stack',
+              sub: 'Todo open',
+              color: 'holodeck',
+              items: [
+                'Frontend: Astro 5 + React',
+                'Backend: Node + Python (FastAPI)',
+                'Database: PostgreSQL + Redis',
+                'Bridge MC: Mineflayer',
+                'GPL-3.0 + Compliance ready',
+              ],
+            },
+          ].map((card) => (
+            <div class={`p-8 border-2 border-${card.color}/30 hover:border-${card.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1`}>
+              <h3 class={`font-display text-3xl uppercase text-${card.color} mb-1 tracking-wider`}>{card.title}</h3>
+              <p class="font-pixel text-[9px] tracking-[0.3em] text-cream/50 mb-5">▸ {card.sub.toUpperCase()}</p>
+              <ul class="space-y-2">
+                {card.items.map((item) => (
+                  <li class="flex items-start gap-3 text-cream/80">
+                    <span class={`text-${card.color} font-display`}>▸</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ALTERMUNDI -->
+    <section class="py-20 px-6 bg-navy-deep/40 border-y border-holodeck/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="inline-block mb-4 px-3 py-1 border border-cream/30 bg-cream/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">CAPÍTULO 03</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
+            Somos <span class="text-daemon neon-cyan">AlterMundi</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+          {[
+            { t: 'Soberanía', d: 'Tu data es tuya. Tus servidores, tu control.', icon: '🛡️', color: 'daemon' },
+            { t: 'Software Libre', d: 'Desde 2012, AlterMundi construye con GPL-3.0.', icon: '📡', color: 'holodeck' },
+            { t: 'Redes Comunitarias', d: 'Infraestructura que crece desde abajo, no centralizada.', icon: '🌐', color: 'daemon' },
+          ].map((item) => (
+            <div class={`p-6 border-2 border-${item.color}/30 hover:border-${item.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1`}>
+              <div class="text-4xl mb-3">{item.icon}</div>
+              <h3 class={`font-display text-2xl uppercase text-${item.color} mb-2 tracking-wider`}>{item.t}</h3>
+              <p class="text-cream/75">{item.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="p-8 border-2 border-daemon/20 bg-gradient-to-r from-daemon/5 to-holodeck/5 rounded">
+          <p class="text-cream text-lg leading-relaxed">
+            <strong class="text-daemon">AlterMundi</strong> lleva más de una década construyendo tecnología soberana desde América Latina. DaemonCraft es el siguiente paso: un agente de IA que respeta tus derechos, tu privacidad y tu control.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-6">
+          ¿Te <span class="text-holodeck neon-gold">interesa</span>?
+        </h2>
+        <p class="text-cream/80 text-lg mb-8">Sumate a la preventa o contactanos para colaborar.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button data-modal-trigger class="px-8 py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_30px_rgba(255,184,0,0.4)] hover:scale-105 transition-all">
+            🎮 Me sumo
+          </button>
+          <a href={`${base}contact`} class="px-8 py-4 font-display text-base tracking-widest uppercase border-2 border-daemon text-daemon hover:bg-daemon hover:text-navy-deep transition-all rounded">
+            Contacto →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 px-6 border-t border-daemon/20 bg-navy-deep/60 backdrop-blur">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">⚡ DAEMONCRAFT · ALTERMUNDI · 2026</p>
+        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">SOBERANÍA · TECNOLÓGICA</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Same modal as home -->
+  <div id="preventa-modal" class="hidden fixed inset-0 bg-navy-deep/95 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+    <div class="relative bg-navy border-2 border-daemon rounded p-8 max-w-md w-full shadow-[0_0_40px_rgba(0,217,255,0.4)]">
+      <div class="absolute -top-3 left-6 px-3 py-1 bg-navy-deep border-2 border-daemon">
+        <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">SAVE GAME</span>
+      </div>
+      <button id="modal-close" class="absolute top-4 right-4 text-cream/60 hover:text-daemon text-2xl">×</button>
+      <h2 class="font-display text-3xl uppercase text-cream mb-2 mt-2">Sumate</h2>
+      <p class="text-cream/70 text-sm mb-6">Te avisamos cuando abramos las puertas.</p>
+      <form id="preventa-form" class="space-y-4">
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ NOMBRE</label>
+          <input type="text" name="nombre" required class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none transition" placeholder="Cómo te llamás" />
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ EMAIL</label>
+          <input type="email" name="email" required class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none transition" placeholder="tu@email.com" />
+        </div>
+        <button type="submit" class="w-full py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded hover:scale-105 transition-all">
+          ✓ INVOCAR
+        </button>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const modal = document.getElementById('preventa-modal');
+  const closeBtn = document.getElementById('modal-close');
+  const form = document.getElementById('preventa-form') as HTMLFormElement | null;
+
+  document.querySelectorAll('[data-modal-trigger]').forEach((btn) => {
+    btn.addEventListener('click', () => modal?.classList.remove('hidden'));
+  });
+  closeBtn?.addEventListener('click', () => modal?.classList.add('hidden'));
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.add('hidden');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modal?.classList.add('hidden');
+  });
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    alert(`✓ ¡Gracias ${fd.get('nombre')}! Te escribimos a ${fd.get('email')}`);
+    form.reset();
+    modal?.classList.add('hidden');
+  });
+</script>

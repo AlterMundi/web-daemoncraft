@@ -1,79 +1,343 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import CrowdfundingBanner from '../components/CrowdfundingBanner.astro';
-import CrowdfundingFAB from '../components/CrowdfundingFAB.astro';
-import Hero from '../components/sections/Hero.astro';
-import Companeros from '../components/sections/Companeros.astro';
-import ComoFunciona from '../components/sections/ComoFunciona.astro';
-import ParaPadres from '../components/sections/ParaPadres.astro';
-import Precios from '../components/sections/Precios.astro';
-import Crowdfunding from '../components/sections/Crowdfunding.astro';
-import Footer from '../components/sections/Footer.astro';
+import GameNav from '../components/GameNav.astro';
+import RetroEffects from '../components/RetroEffects.astro';
+import HeroScene from '../components/HeroScene.jsx';
+import MinecraftSkin from '../components/MinecraftSkin.jsx';
 
-const CROWDFUNDING_URL = '#crowdfunding';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout>
-  <CrowdfundingBanner href={CROWDFUNDING_URL} />
+  <RetroEffects />
+  <GameNav active="home" />
 
-  <main class="pt-8">
-    <Nav />
-    <Hero />
-    <Companeros />
-    <ComoFunciona />
-    <ParaPadres />
-    <Precios />
-    <Crowdfunding href={CROWDFUNDING_URL} />
-    <Footer />
+  <main class="relative z-10">
+    <!-- HERO -->
+    <section class="pt-28 pb-20 px-6 min-h-screen flex items-center relative">
+      <div class="max-w-7xl mx-auto w-full">
+        <HeroScene client:load base={base} />
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="relative h-24 overflow-hidden">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-pixel text-[10px] tracking-[0.5em] text-daemon/40 uppercase">
+          ▼ Conocé los Pilares ▼
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLAR 1: DAEMON -->
+    <section id="daemon" class="py-24 px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <!-- Visual -->
+          <div class="order-2 md:order-1">
+            <div class="relative">
+              <div class="absolute -inset-12 bg-daemon/20 blur-3xl rounded-full" />
+              <div class="relative flex justify-center">
+                <MinecraftSkin
+                  client:visible
+                  skinUrl={`${base}skin-daemon.png`}
+                  height={460}
+                  width={320}
+                  animation="walk"
+                  speed={0.8}
+                  rotateSpeed={0.6}
+                  zoom={0.95}
+                  glowColor="rgba(0, 217, 255, 0.5)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="order-1 md:order-2">
+            <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
+              <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">PILAR 01</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-6xl uppercase text-cream mb-6 leading-[0.95]">
+              <span class="block text-daemon neon-cyan">Daemon</span>
+              <span class="text-cream/80 text-3xl md:text-4xl">Tu compañero</span>
+            </h2>
+            <p class="text-cream/80 text-lg leading-relaxed mb-8">
+              Un agente autónomo de IA que <strong class="text-daemon">vive 24/7</strong> en tu servidor.
+              Aprende de vos, recuerda tus aventuras, y nunca se va.
+            </p>
+
+            <ul class="space-y-3 mb-8">
+              {[
+                'Memoria persistente entre sesiones',
+                'Personalidad propia y evolutiva',
+                'Tu data jamás entrena modelos ajenos',
+                'Compliance COPPA + GDPR',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-cream/80">
+                  <span class="text-daemon font-display mt-1">▸</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex gap-4 flex-wrap">
+              <a href={`${base}about`} class="px-6 py-3 font-display text-sm uppercase tracking-widest border-2 border-daemon text-daemon hover:bg-daemon hover:text-navy-deep transition-all rounded">
+                Cómo funciona →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="relative h-24 overflow-hidden">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-pixel text-[10px] tracking-[0.5em] text-holodeck/40 uppercase">
+          ▼ Tu mundo, generado en vivo ▼
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLAR 2: HOLODECK -->
+    <section id="holodeck" class="py-24 px-6 relative bg-gradient-to-b from-transparent via-rolemaster/10 to-transparent">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <!-- Text -->
+          <div>
+            <div class="inline-block mb-4 px-3 py-1 border border-holodeck/40 bg-holodeck/5">
+              <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">PILAR 02</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-6xl uppercase text-cream mb-6 leading-[0.95]">
+              <span class="block text-holodeck neon-gold">Holodeck</span>
+              <span class="text-cream/80 text-3xl md:text-4xl">Tu mundo</span>
+            </h2>
+            <p class="text-cream/80 text-lg leading-relaxed mb-8">
+              Sistema generativo que crea aventuras completas <strong class="text-holodeck">automáticamente</strong>.
+              De una idea a un mundo jugable en minutos.
+            </p>
+
+            <ul class="space-y-3 mb-8">
+              {[
+                'Mundos generados con TRELLIS.2 (Microsoft 3D)',
+                'Texturas por Flux/SD3 — pixel-perfect Minecraft',
+                'Adventure Packs listos para jugar',
+                'Narrativas dirigidas por Role Master IA',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-cream/80">
+                  <span class="text-holodeck font-display mt-1">▸</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex gap-4 flex-wrap">
+              <a href={`${base}about`} class="px-6 py-3 font-display text-sm uppercase tracking-widest border-2 border-holodeck text-holodeck hover:bg-holodeck hover:text-navy-deep transition-all rounded">
+                Ver tecnología →
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual: Generation grid -->
+          <div>
+            <div class="relative aspect-square max-w-md mx-auto">
+              <div class="absolute -inset-12 bg-holodeck/20 blur-3xl rounded-full" />
+              <div class="relative grid grid-cols-3 gap-2 p-6 border-2 border-holodeck/40 rounded bg-navy-deep/60 backdrop-blur">
+                <div class="font-pixel text-[8px] text-holodeck col-span-3 mb-2 tracking-[0.3em]">▸ GENERANDO MUNDO...</div>
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div
+                    class="aspect-square holodeck-tile"
+                    style={`animation-delay: ${i * 0.15}s`}
+                  ></div>
+                ))}
+                <div class="font-pixel text-[8px] text-cream/60 col-span-3 mt-2 tracking-[0.3em]">
+                  ▸ <span class="text-holodeck">SUCCESS</span> · 12 estructuras · 3 biomas
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-24 px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <div class="inline-block mb-4 px-3 py-1 border border-cream/30 bg-cream/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">CÓMO FUNCIONA</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream">
+            Tres niveles para empezar
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {[
+            { lvl: '01', title: 'INVOCÁ', icon: '⚡', desc: 'Creás tu Daemon en segundos. Personalidad, nombre, servidor.', color: 'daemon' },
+            { lvl: '02', title: 'VIVÍ', icon: '🎮', desc: 'Tu Daemon aparece en tu mundo. Juega, aprende, te acompaña.', color: 'holodeck' },
+            { lvl: '03', title: 'GENERÁ', icon: '🌐', desc: 'Holodeck crea aventuras infinitas a partir de tus ideas.', color: 'daemon' },
+          ].map((step) => (
+            <div class={`group relative p-8 border-2 border-${step.color}/30 hover:border-${step.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-2`}>
+              <div class="absolute -top-3 -left-3 px-3 py-1 bg-navy-deep border-2 border-current font-pixel text-[10px] tracking-[0.3em]" style={`color: var(--c-${step.color})`}>
+                LVL {step.lvl}
+              </div>
+              <div class="text-5xl mb-4">{step.icon}</div>
+              <h3 class={`font-display text-3xl uppercase text-${step.color} mb-3 tracking-wider`}>
+                {step.title}
+              </h3>
+              <p class="text-cream/75 leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-32 px-6 relative">
+      <div class="max-w-4xl mx-auto text-center relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-daemon/10 via-holodeck/10 to-daemon/10 blur-3xl" />
+        <div class="relative">
+          <div class="inline-block mb-6 px-3 py-1 border border-holodeck/40 bg-holodeck/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck animate-pulse">⚡ PREVENTA ABIERTA</span>
+          </div>
+          <h2 class="font-display text-5xl md:text-7xl uppercase text-cream mb-6 leading-[0.95]">
+            ¿Listo para<br />
+            <span class="bg-gradient-to-r from-daemon to-holodeck bg-clip-text text-transparent">invocarlo?</span>
+          </h2>
+          <p class="text-xl text-cream/80 mb-10">
+            Sumate ahora y sos parte de la primera camada. Acceso preventa + canal directo con el equipo.
+          </p>
+          <button
+            data-modal-trigger
+            class="px-12 py-5 font-display text-lg tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_40px_rgba(255,184,0,0.5)] hover:shadow-[0_0_60px_rgba(0,217,255,0.7)] hover:scale-105 transition-all"
+          >
+            🚀 Me sumo a la preventa
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 px-6 border-t border-daemon/20 bg-navy-deep/60 backdrop-blur">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">
+          ⚡ DAEMONCRAFT · ALTERMUNDI · 2026
+        </p>
+        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">
+          SOBERANÍA · TECNOLÓGICA
+        </p>
+      </div>
+    </footer>
   </main>
 
-  <CrowdfundingFAB href={CROWDFUNDING_URL} />
+  <!-- Modal Preventa -->
+  <div id="preventa-modal" class="hidden fixed inset-0 bg-navy-deep/95 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+    <div class="relative bg-navy border-2 border-daemon rounded p-8 max-w-md w-full shadow-[0_0_40px_rgba(0,217,255,0.4)]">
+      <div class="absolute -top-3 left-6 px-3 py-1 bg-navy-deep border-2 border-daemon">
+        <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">SAVE GAME</span>
+      </div>
+      <button id="modal-close" class="absolute top-4 right-4 text-cream/60 hover:text-daemon text-2xl">×</button>
+
+      <h2 class="font-display text-3xl uppercase text-cream mb-2 mt-2">Sumate</h2>
+      <p class="text-cream/70 text-sm mb-6">Te avisamos cuando abramos las puertas.</p>
+
+      <form id="preventa-form" class="space-y-4">
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ NOMBRE</label>
+          <input type="text" name="nombre" required
+            class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none focus:shadow-[0_0_15px_rgba(0,217,255,0.3)] transition"
+            placeholder="Cómo te llamás" />
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ EMAIL</label>
+          <input type="email" name="email" required
+            class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none focus:shadow-[0_0_15px_rgba(0,217,255,0.3)] transition"
+            placeholder="tu@email.com" />
+        </div>
+        <div>
+          <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ ¿DÓNDE NOS ENCONTRASTE?</label>
+          <select name="referral" class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none">
+            <option value="">Seleccioná</option>
+            <option value="twitter">Twitter / X</option>
+            <option value="discord">Discord</option>
+            <option value="amigo">Un amigo</option>
+            <option value="evento">Un evento</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <button type="submit"
+          class="w-full py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_20px_rgba(255,184,0,0.4)] hover:shadow-[0_0_40px_rgba(0,217,255,0.6)] transition-all">
+          ✓ INVOCAR
+        </button>
+      </form>
+      <p class="text-cream/50 text-xs mt-4 text-center font-mono">
+        Tus datos jamás se venden. Promesa AlterMundi.
+      </p>
+    </div>
+  </div>
 </Layout>
 
+<style>
+  :root {
+    --c-daemon: #00D9FF;
+    --c-holodeck: #FFB800;
+  }
+
+  /* Holodeck generative tile animation */
+  .holodeck-tile {
+    background: linear-gradient(135deg, rgba(255, 184, 0, 0.05), rgba(255, 184, 0, 0.2));
+    border: 1px solid rgba(255, 184, 0, 0.3);
+    animation: holodeck-pulse 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  .holodeck-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 184, 0, 0.6) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: holodeck-scan 3s ease-in-out infinite;
+  }
+  @keyframes holodeck-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  @keyframes holodeck-scan {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+  }
+</style>
+
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
+  // Modal control
+  const modal = document.getElementById('preventa-modal');
+  const closeBtn = document.getElementById('modal-close');
+  const form = document.getElementById('preventa-form') as HTMLFormElement | null;
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-modal-trigger]').forEach((btn) => {
+    btn.addEventListener('click', () => modal?.classList.remove('hidden'));
+  });
 
-  if (!reduced) {
-    // Fade + pop de cards cuando entran en viewport
-    document.querySelectorAll('section').forEach((section) => {
-      gsap.from(section.querySelectorAll('.mc-card, .h-display, .btn-mc, article'), {
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'back.out(1.4)',
-        stagger: 0.08,
-        scrollTrigger: { trigger: section, start: 'top 85%' },
-      });
-    });
+  closeBtn?.addEventListener('click', () => modal?.classList.add('hidden'));
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.add('hidden');
+  });
 
-    // Parallax sutil en pasto/nubes del hero
-    gsap.to('#top .grass-floor', {
-      y: -40,
-      ease: 'none',
-      scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true },
-    });
-  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modal?.classList.add('hidden');
+  });
 
-  // FAB visible solo después del hero, oculto en crowdfunding
-  const fab = document.querySelector('.fab');
-  if (fab) {
-    fab.style.opacity = '0';
-    fab.style.transform = 'translateY(20px)';
-    fab.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.target.id === 'top') {
-          fab.style.opacity = e.isIntersecting ? '0' : '1';
-          fab.style.transform = e.isIntersecting ? 'translateY(20px)' : 'translateY(0)';
-        }
-        if (e.target.id === 'crowdfunding' && e.isIntersecting) fab.style.opacity = '0';
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('#top, #crowdfunding').forEach((el) => io.observe(el));
-  }
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const nombre = fd.get('nombre');
+    const email = fd.get('email');
+    console.log('Preventa:', Object.fromEntries(fd));
+    alert(`✓ ¡Gracias ${nombre}! Te escribimos a ${email}`);
+    form.reset();
+    modal?.classList.add('hidden');
+  });
 </script>

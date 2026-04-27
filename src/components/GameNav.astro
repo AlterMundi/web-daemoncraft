@@ -1,0 +1,61 @@
+---
+interface Props {
+  active?: 'home' | 'about' | 'contact';
+}
+const { active = 'home' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const linkBase = "px-4 py-2 font-display text-sm tracking-wider uppercase transition-all relative";
+const linkInactive = "text-cream/70 hover:text-daemon hover:neon-cyan";
+const linkActive = "text-daemon neon-cyan";
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-navy-deep/70 border-b border-daemon/30">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+    <a href={base} class="flex items-center gap-2 group">
+      <span class="text-2xl group-hover:scale-110 transition-transform">⚡</span>
+      <span class="font-display text-xl tracking-widest bg-gradient-to-r from-daemon via-cream to-holodeck bg-clip-text text-transparent">
+        DAEMONCRAFT
+      </span>
+    </a>
+
+    <div class="hidden md:flex gap-2 items-center">
+      <a href={base} class={`${linkBase} ${active === 'home' ? linkActive : linkInactive}`}>
+        Home
+      </a>
+      <a href={`${base}about`} class={`${linkBase} ${active === 'about' ? linkActive : linkInactive}`}>
+        Sobre
+      </a>
+      <a href={`${base}contact`} class={`${linkBase} ${active === 'contact' ? linkActive : linkInactive}`}>
+        Contacto
+      </a>
+      <button
+        data-modal-trigger
+        class="ml-3 px-5 py-2 font-display text-sm tracking-wider uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_20px_rgba(255,184,0,0.4)] hover:shadow-[0_0_30px_rgba(0,217,255,0.6)] hover:scale-105 transition-all"
+      >
+        🎮 Me sumo
+      </button>
+    </div>
+
+    <!-- Mobile -->
+    <button id="mobile-toggle" class="md:hidden text-cream text-2xl">☰</button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-navy-deep/95 border-t border-daemon/20">
+    <div class="flex flex-col p-4 gap-3">
+      <a href={base} class={`${linkBase} ${active === 'home' ? linkActive : linkInactive}`}>Home</a>
+      <a href={`${base}about`} class={`${linkBase} ${active === 'about' ? linkActive : linkInactive}`}>Sobre</a>
+      <a href={`${base}contact`} class={`${linkBase} ${active === 'contact' ? linkActive : linkInactive}`}>Contacto</a>
+      <button data-modal-trigger class="px-5 py-3 font-display text-sm uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded">
+        🎮 Me sumo
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>
