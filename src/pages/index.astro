@@ -145,11 +145,17 @@ const base = import.meta.env.BASE_URL;
               <div class="absolute -inset-12 bg-holodeck/20 blur-3xl rounded-full" />
               <div class="relative grid grid-cols-3 gap-2 p-6 border-2 border-holodeck/40 rounded bg-navy-deep/60 backdrop-blur">
                 <div class="font-pixel text-[8px] text-holodeck col-span-3 mb-2 tracking-[0.3em]">▸ GENERANDO MUNDO...</div>
-                {Array.from({ length: 9 }).map((_, i) => (
+                {[
+                  'mountain.svg', 'castle.svg', 'forest.svg',
+                  'dungeon.svg', 'dragon.svg', 'portal.svg',
+                  'chest.svg', 'village.svg', 'island.svg'
+                ].map((img, i) => (
                   <div
-                    class="aspect-square holodeck-tile"
+                    class="aspect-square holodeck-tile flex items-center justify-center p-2 group"
                     style={`animation-delay: ${i * 0.15}s`}
-                  ></div>
+                  >
+                    <img src={`${base}holodeck/${img}`} alt="" class="w-full h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                  </div>
                 ))}
                 <div class="font-pixel text-[8px] text-cream/60 col-span-3 mt-2 tracking-[0.3em]">
                   ▸ <span class="text-holodeck">SUCCESS</span> · 12 estructuras · 3 biomas

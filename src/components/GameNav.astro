@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active?: 'home' | 'about' | 'contact';
+  active?: 'home' | 'about' | 'contact' | 'familias';
 }
 const { active = 'home' } = Astro.props;
 const base = import.meta.env.BASE_URL;
@@ -26,6 +26,9 @@ const linkActive = "text-daemon neon-cyan";
       <a href={`${base}about`} class={`${linkBase} ${active === 'about' ? linkActive : linkInactive}`}>
         Sobre
       </a>
+      <a href={`${base}familias`} class={`${linkBase} ${active === 'familias' ? 'text-holodeck neon-gold' : 'text-cream/70 hover:text-holodeck'}`}>
+        👨‍👩‍👧 Soy Mamá/Papá
+      </a>
       <a href={`${base}contact`} class={`${linkBase} ${active === 'contact' ? linkActive : linkInactive}`}>
         Contacto
       </a>
@@ -46,6 +49,7 @@ const linkActive = "text-daemon neon-cyan";
     <div class="flex flex-col p-4 gap-3">
       <a href={base} class={`${linkBase} ${active === 'home' ? linkActive : linkInactive}`}>Home</a>
       <a href={`${base}about`} class={`${linkBase} ${active === 'about' ? linkActive : linkInactive}`}>Sobre</a>
+      <a href={`${base}familias`} class={`${linkBase} ${active === 'familias' ? 'text-holodeck' : 'text-cream/70'}`}>👨‍👩‍👧 Soy Mamá/Papá</a>
       <a href={`${base}contact`} class={`${linkBase} ${active === 'contact' ? linkActive : linkInactive}`}>Contacto</a>
       <button data-modal-trigger class="px-5 py-3 font-display text-sm uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded">
         🎮 Me sumo

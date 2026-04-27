@@ -110,6 +110,54 @@ DEMONS = {
         'cloth': (30, 20, 60),
         'cloth_accent': (255, 230, 80),
     },
+    # ============================================================
+    # HERMES — el acompañante de viajeros (no es demonio, es protector)
+    # ============================================================
+    'skin-hermes-guide': {
+        'name': 'HERMES',
+        'desc': 'Acompañante de viajeros — protector de los pequeños',
+        'skin': (235, 200, 165),       # piel humana cálida
+        'skin_shade': (195, 160, 130),
+        'skin_light': (255, 225, 195),
+        'eyes': (140, 220, 255),       # azul cielo confiable
+        'eye_glow': (200, 240, 255),
+        'horns': (220, 180, 80),       # alas doradas en lugar de cuernos
+        'horns_tip': (255, 230, 120),
+        'marking': (255, 215, 100),    # marca dorada en pecho (caduceo)
+        'marking_glow': (255, 245, 180),
+        'cloth': (40, 90, 140),        # túnica azul (mensajero)
+        'cloth_accent': (220, 180, 80),
+    },
+    # ============================================================
+    # FAMILIA — papá, mamá, niño (simples, cálidos, sin cuernos)
+    # ============================================================
+    'family-mom': {
+        'name': 'MAMÁ',
+        'desc': 'Madre',
+        'skin': (235, 195, 160), 'skin_shade': (195, 155, 125), 'skin_light': (250, 220, 190),
+        'eyes': (90, 140, 90), 'eye_glow': (150, 200, 150),
+        'horns': (180, 80, 100), 'horns_tip': (220, 100, 130),  # pelo
+        'marking': (255, 180, 200), 'marking_glow': (255, 220, 230),
+        'cloth': (180, 80, 100), 'cloth_accent': (255, 220, 230),  # remera rosa
+    },
+    'family-dad': {
+        'name': 'PAPÁ',
+        'desc': 'Padre',
+        'skin': (220, 180, 145), 'skin_shade': (180, 140, 110), 'skin_light': (240, 205, 170),
+        'eyes': (100, 70, 50), 'eye_glow': (150, 110, 80),
+        'horns': (60, 40, 30), 'horns_tip': (90, 60, 40),  # pelo castaño
+        'marking': (220, 180, 145), 'marking_glow': (240, 205, 170),
+        'cloth': (50, 70, 110), 'cloth_accent': (180, 200, 220),  # camisa azul
+    },
+    'family-kid': {
+        'name': 'NIÑO',
+        'desc': 'Niño explorador',
+        'skin': (240, 210, 180), 'skin_shade': (200, 170, 140), 'skin_light': (255, 230, 200),
+        'eyes': (60, 130, 220), 'eye_glow': (140, 200, 255),
+        'horns': (200, 150, 70), 'horns_tip': (240, 200, 100),  # pelo rubio
+        'marking': (255, 230, 100), 'marking_glow': (255, 250, 180),
+        'cloth': (50, 150, 100), 'cloth_accent': (255, 230, 100),  # remera verde con sol
+    },
 }
 
 
@@ -318,10 +366,35 @@ def paint_legs(img, p):
     pixel(img, 22, 58, p['marking_glow'])
 
 
-def generate(name, palette):
+def paint_hair(img, p):
+    """Paint hair (no horns) on the HAT layer — for family/human skins."""
+    # Hair on top of head (40,0)-(47,7)
+    for x in range(40, 48):
+        for y in range(0, 4):
+            pixel(img, x, y, p['horns'])
+    # Hair bangs on forehead front (40,8)-(47,9)
+    for x in range(40, 48):
+        pixel(img, x, 8, p['horns'])
+        if x in (41, 43, 44, 46):
+            pixel(img, x, 9, p['horns'])
+    # Hair on sides
+    for y in range(8, 12):
+        pixel(img, 32, y, p['horns'])
+        pixel(img, 39, y, p['horns'])
+        pixel(img, 48, y, p['horns'])
+        pixel(img, 55, y, p['horns'])
+    # Highlights
+    pixel(img, 42, 0, p['horns_tip'])
+    pixel(img, 45, 0, p['horns_tip'])
+
+
+def generate(name, palette, is_human=False):
     img = Image.new('RGBA', (64, 64), (0, 0, 0, 0))
     paint_head(img, palette)
-    paint_horns(img, palette)
+    if is_human:
+        paint_hair(img, palette)
+    else:
+        paint_horns(img, palette)
     paint_body(img, palette)
     paint_arms(img, palette)
     paint_legs(img, palette)
@@ -332,11 +405,13 @@ def generate(name, palette):
 
 
 def main():
-    print('Generando demonios...')
+    print('Generando skins...')
     OUT.mkdir(exist_ok=True)
+    HUMAN_NAMES = {'family-mom', 'family-dad', 'family-kid'}
     for name, palette in DEMONS.items():
-        generate(name, palette)
-    print(f'\nGenerados {len(DEMONS)} demonios en {OUT}/')
+        is_human = name in HUMAN_NAMES
+        generate(name, palette, is_human=is_human)
+    print(f'\nGenerados {len(DEMONS)} skins en {OUT}/')
 
 
 if __name__ == '__main__':
