@@ -18,9 +18,11 @@ export default function MinecraftSkin({
   zoom = 0.85,
   glowColor = 'rgba(0, 217, 255, 0.35)',
   rotateY = 0,
+  followMouse = false,
 }) {
   const canvasRef = useRef(null);
   const viewerRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     let mounted = true;
@@ -59,6 +61,22 @@ export default function MinecraftSkin({
       viewer.cameraLight.intensity = 0.7;
       viewer.renderer.setClearColor(0x000000, 0);
 
+      // Follow Mouse Logic
+      if (followMouse) {
+        const handleMouseMove = (e) => {
+          if (!viewer || !mounted) return;
+          const rect = canvasRef.current.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          
+          // Smoothly look at cursor
+          viewer.playerObject.lookAt(x * 10, -y * 10, 5);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+      }
+
       viewerRef.current = viewer;
     })();
 
@@ -68,10 +86,11 @@ export default function MinecraftSkin({
         viewerRef.current.dispose?.();
       }
     };
-  }, [skinUrl, height, width, animation, speed, rotateSpeed, zoom, rotateY]);
+  }, [skinUrl, height, width, animation, speed, rotateSpeed, zoom, rotateY, followMouse]);
 
   return (
     <div
+      ref={containerRef}
       className="relative inline-block"
       style={{ width, height }}
     >

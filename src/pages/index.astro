@@ -108,12 +108,12 @@ const base = import.meta.env.BASE_URL;
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
           {[
-            { id: 'inferno', name: 'Inferno', color: 'rgba(255, 87, 34, 0.4)', url: 'demon-inferno.png' },
-            { id: 'frost',   name: 'Frost',   color: 'rgba(0, 217, 255, 0.4)', url: 'demon-frost.png' },
-            { id: 'void',    name: 'Void',    color: 'rgba(50, 50, 50, 0.6)',  url: 'demon-void.png' },
-            { id: 'astral',  name: 'Astral',  color: 'rgba(255, 255, 255, 0.3)', url: 'demon-astral.png' },
-            { id: 'storm',   name: 'Storm',   color: 'rgba(124, 172, 80, 0.6)', url: 'demon-storm.png' },
-            { id: 'classic', name: 'Classic', color: 'rgba(0, 217, 255, 0.5)', url: 'skin-daemon.png' },
+            { id: 'inferno', name: 'Inferno', color: 'rgba(255, 87, 34, 0.4)', url: 'demon-inferno.png', anim: 'walk' },
+            { id: 'frost',   name: 'Frost',   color: 'rgba(0, 217, 255, 0.4)', url: 'demon-frost.png', anim: 'idle' },
+            { id: 'void',    name: 'Void',    color: 'rgba(50, 50, 50, 0.6)',  url: 'demon-void.png', anim: 'walk' },
+            { id: 'astral',  name: 'Astral',  color: 'rgba(255, 255, 255, 0.3)', url: 'demon-astral.png', anim: 'idle' },
+            { id: 'storm',   name: 'Storm',   color: 'rgba(124, 172, 80, 0.6)', url: 'demon-storm.png', anim: 'walk' },
+            { id: 'classic', name: 'Classic', color: 'rgba(0, 217, 255, 0.5)', url: 'skin-daemon.png', anim: 'walk' },
           ].map((d) => (
             <div class="group relative bg-navy/40 border-2 border-cream/5 p-3 rounded hover:border-daemon/40 transition-all hover:-translate-y-1 cursor-pointer">
               <div class="aspect-[3/4] relative mb-3 flex justify-center items-center overflow-hidden bg-navy-deep/60">
@@ -123,11 +123,12 @@ const base = import.meta.env.BASE_URL;
                   skinUrl={`${base}${d.url}`}
                   height={180}
                   width={140}
-                  animation="idle"
-                  speed={0.4}
-                  rotateSpeed={0.3}
+                  animation={d.anim}
+                  speed={0.5}
+                  rotateSpeed={0}
                   zoom={0.9}
                   glowColor={d.color}
+                  followMouse={true}
                 />
               </div>
               <div class="text-center">
@@ -139,23 +140,25 @@ const base = import.meta.env.BASE_URL;
           <!-- Card: Create your own -->
           <div class="group relative bg-daemon/5 border-2 border-dashed border-daemon/30 p-3 rounded hover:border-daemon/60 hover:bg-daemon/10 transition-all hover:-translate-y-1 cursor-pointer">
             <div class="aspect-[3/4] relative mb-3 flex flex-col justify-center items-center overflow-hidden bg-navy-deep/40">
-              <div class="text-4xl mb-2 filter grayscale group-hover:grayscale-0 transition-all">🖌️</div>
-              <div class="absolute bottom-2 left-0 right-0 text-center">
+              <div class="text-4xl mb-2 filter grayscale group-hover:grayscale-0 transition-all z-20">🖌️</div>
+              <div class="absolute bottom-2 left-0 right-0 text-center z-30">
                 <div class="inline-block px-2 py-1 bg-daemon text-navy-deep font-pixel text-[7px] tracking-tight rotate-[-2deg] shadow-lg">
                   CREA TU SKIN
                 </div>
               </div>
-              <MinecraftSkin
-                client:visible
-                skinUrl={`${base}skin-daemon.png`}
-                height={150}
-                width={110}
-                animation="walk"
-                speed={0.3}
-                rotateSpeed={0.2}
-                zoom={0.7}
-                glowColor="rgba(255,255,255,0.1)"
-              />
+              <div class="opacity-60 group-hover:opacity-100 transition-opacity">
+                <MinecraftSkin
+                  client:visible
+                  skinUrl={`${base}skin-daemon.png`}
+                  height={150}
+                  width={110}
+                  animation="walk"
+                  speed={0.8}
+                  rotateSpeed={0.5}
+                  zoom={0.7}
+                  glowColor="rgba(255,255,255,0.1)"
+                />
+              </div>
             </div>
             <div class="text-center">
               <div class="font-pixel text-[9px] text-holodeck uppercase">Prompt Creator</div>
