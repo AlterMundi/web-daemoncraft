@@ -116,13 +116,16 @@ const base = import.meta.env.BASE_URL;
           <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
             Somos <span class="text-daemon neon-cyan">AlterMundi</span>
           </h2>
+          <p class="text-cream/70 text-lg max-w-3xl mx-auto">
+            Un ecosistema de investigación y experimentación centrado en la <strong class="text-holodeck">Harmonic Information Theory (HIT)</strong>.
+          </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 mb-10">
           {[
-            { t: 'Soberanía', d: 'Tu data es tuya. Tus servidores, tu control.', icon: '🛡️', color: 'daemon' },
-            { t: 'Software Libre', d: 'Desde 2012, AlterMundi construye con GPL-3.0.', icon: '📡', color: 'holodeck' },
-            { t: 'Redes Comunitarias', d: 'Infraestructura que crece desde abajo, no centralizada.', icon: '🌐', color: 'daemon' },
+            { t: 'Patrones Armónicos', d: 'Investigamos patrones armónicos que conectan sistemas físicos, biológicos, perceptuales y computacionales.', icon: '🔬', color: 'daemon' },
+            { t: 'Tecnología Soberana', d: 'Desarrollamos tecnologías capaces de traducir y aplicar estos patrones al mundo real.', icon: '⚡', color: 'holodeck' },
+            { t: 'Código Abierto', d: 'Todo lo que construimos es libre, replicable, y está diseñado para crecer desde las comunidades.', icon: '🌐', color: 'daemon' },
           ].map((item) => (
             <div class={`p-6 border-2 border-${item.color}/30 hover:border-${item.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1`}>
               <div class="text-4xl mb-3">{item.icon}</div>
@@ -133,9 +136,12 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="p-8 border-2 border-daemon/20 bg-gradient-to-r from-daemon/5 to-holodeck/5 rounded">
-          <p class="text-cream text-lg leading-relaxed">
-            <strong class="text-daemon">AlterMundi</strong> is a research and experimentation ecosystem converging on a common core: the exploration of Harmonic Information Theory (HIT) and the development of technologies capable of investigating, translating, and applying harmonic patterns across physical, biological, perceptual, and computational systems.
+          <p class="text-cream text-lg leading-relaxed mb-4">
+            <strong class="text-daemon">AlterMundi</strong> is a research and experimentation ecosystem converging on a common core: the exploration of <strong class="text-holodeck">Harmonic Information Theory (HIT)</strong> and the development of technologies capable of investigating, translating, and applying harmonic patterns across physical, biological, perceptual, and computational systems.
           </p>
+          <a href="https://hi.altermundi.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 font-display text-sm uppercase tracking-widest border-2 border-holodeck text-holodeck hover:bg-holodeck hover:text-navy-deep transition-all rounded">
+            🔗 Explorá HIT → hi.altermundi.com
+          </a>
         </div>
       </div>
     </section>
