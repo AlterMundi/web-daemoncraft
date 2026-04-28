@@ -5,7 +5,7 @@ import * as THREE from 'three';
 // Helper to apply 32x32 pixel-perfect UVs to a BoxGeometry.
 function applyMinecraftUV(geometry, startX, startY, w, h, d, texW = 32, texH = 32) {
     const uvs = geometry.attributes.uv.array;
-    
+
     // Minecraft texture layout for a box (Top, Bottom, Right, Front, Left, Back)
     // Note: Three.js BoxGeometry face order: Right (+x), Left (-x), Top (+y), Bottom (-y), Front (+z), Back (-z)
     const mapFace = (faceIdx, u, v, width, height, rotate = 0) => {
@@ -43,7 +43,7 @@ function applyPlaneUV(geometry, u, v, width, height, texW = 32, texH = 32) {
     const u2 = (u + width) / texW;
     const v1 = 1 - ((v + height) / texH);
     const v2 = 1 - (v / texH);
-    
+
     uvs[0] = u1; uvs[1] = v2;
     uvs[2] = u2; uvs[3] = v2;
     uvs[4] = u1; uvs[5] = v1;
@@ -51,13 +51,13 @@ function applyPlaneUV(geometry, u, v, width, height, texW = 32, texH = 32) {
 }
 
 const ALLAY_SKINS = [
-    { id: 'classic', name: 'Classic Allay', path: '/skins/allay/allay-on-planetminecraft-com.png' },
-    { id: 'purple', name: 'Purple Allay', path: '/skins/allay/Purple-allay-on-planetminecraft-com.png' },
-    { id: 'enderman', name: 'Enderman Allay', path: '/skins/allay/Enderman-Allay-on-planetminecraft-com.png' },
-    { id: 'dark', name: 'Dark Allay', path: '/skins/allay/dark-allay-on-planetminecraft-com.png' },
-    { id: 'zombie', name: 'Zombie Allay', path: '/skins/allay/Boldering-Zombie-Allay-on-planetminecraft-com.png' },
-    { id: 'remake', name: 'Allay Remake', path: '/skins/allay/Allay-Remake-on-planetminecraft-com.png' },
-    { id: 'twilight', name: 'Twilight Allay', path: '/skins/allay/Twilight-Allay-on-planetminecraft-com.png' }
+    { id: 'classic', name: 'Classic Allay', emoji: '💎', path: '/skins/allay/allay-on-planetminecraft-com.png' },
+    { id: 'purple', name: 'Purple Allay', emoji: '🔮', path: '/skins/allay/Purple-allay-on-planetminecraft-com.png' },
+    { id: 'enderman', name: 'Enderman Allay', emoji: '👾', path: '/skins/allay/Enderman-Allay-on-planetminecraft-com.png' },
+    { id: 'dark', name: 'Dark Allay', emoji: '🌑', path: '/skins/allay/dark-allay-on-planetminecraft-com.png' },
+    { id: 'zombie', name: 'Zombie Allay', emoji: '🧟', path: '/skins/allay/Boldering-Zombie-Allay-on-planetminecraft-com.png' },
+    { id: 'remake', name: 'Allay Remake', emoji: '✨', path: '/skins/allay/Allay-Remake-on-planetminecraft-com.png' },
+    { id: 'twilight', name: 'Twilight Allay', emoji: '🌙', path: '/skins/allay/Twilight-Allay-on-planetminecraft-com.png' }
 ];
 
 export default function AllayThree({ base = '', scale = 1.5 }) {
@@ -94,18 +94,18 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
         if (!materialRef.current) return;
         const textureLoader = new THREE.TextureLoader();
         const skinUrl = base + ALLAY_SKINS[currentSkinIndex].path.replace(/^\//, '');
-        
+
         textureLoader.load(skinUrl, (texture) => {
             texture.magFilter = THREE.NearestFilter;
             texture.minFilter = THREE.NearestFilter;
             texture.colorSpace = THREE.SRGBColorSpace;
-            
+
             if (materialRef.current.map) {
                 materialRef.current.map.dispose();
             }
             materialRef.current.map = texture;
             materialRef.current.needsUpdate = true;
-            
+
             // Optional: add emission for specific skins like dark/enderman
             if (ALLAY_SKINS[currentSkinIndex].id === 'dark' || ALLAY_SKINS[currentSkinIndex].id === 'enderman') {
                 materialRef.current.emissive = new THREE.Color(0x330055);
@@ -129,7 +129,7 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
     useEffect(() => {
         if (!mountRef.current) return;
         const mount = mountRef.current;
-        
+
         const scene = new THREE.Scene();
         // Camera setup - looking slightly down at the Allay
         const camera = new THREE.PerspectiveCamera(45, mount.clientWidth / mount.clientHeight, 0.1, 100);
@@ -148,7 +148,7 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
         scene.add(dirLight);
 
         // Material creation
-        const material = new THREE.MeshStandardMaterial({ 
+        const material = new THREE.MeshStandardMaterial({
             transparent: true,
             alphaTest: 0.05,
             side: THREE.DoubleSide
@@ -203,7 +203,7 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
         armL.position.y = -0.375;
         armGroupL.add(armL);
         body.add(armGroupL);
-        
+
         armsRef.current = [armGeoR, armGeoL];
 
         // -- Wings Setup (Configurable UVs)
@@ -213,14 +213,14 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
         applyPlaneUV(wingGeoR, animParams.wingUV_X, animParams.wingUV_Y, animParams.wingUV_W, animParams.wingUV_H);
         const wingR = new THREE.Mesh(wingGeoR, material);
         wingR.position.set(-0.6, 0, 0); // Offset to pivot from back
-        wingR.rotation.y = Math.PI / 4; 
+        wingR.rotation.y = Math.PI / 4;
         wingGroupR.add(wingR);
         body.add(wingGroupR);
 
         const wingGroupL = new THREE.Group();
         wingGroupL.position.set(0.15, 0.3, 0.25); // Back left
         const wingGeoL = new THREE.PlaneGeometry(1.2, 1.2);
-        applyPlaneUV(wingGeoL, animParams.wingUV_X, animParams.wingUV_Y, animParams.wingUV_W, animParams.wingUV_H); 
+        applyPlaneUV(wingGeoL, animParams.wingUV_X, animParams.wingUV_Y, animParams.wingUV_W, animParams.wingUV_H);
         const wingL = new THREE.Mesh(wingGeoL, material);
         // mirror the wing texture by negative scale to make them symmetrical 
         wingL.scale.x = -1;
@@ -236,10 +236,10 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
         const particlesGeo = new THREE.BufferGeometry();
         const particlesPos = new Float32Array(particleCount * 3);
         const particlesVel = [];
-        for(let i=0; i<particleCount; i++) {
-            particlesPos[i*3] = (Math.random() - 0.5) * 3;
-            particlesPos[i*3+1] = (Math.random() - 0.5) * 3;
-            particlesPos[i*3+2] = (Math.random() - 0.5) * 3;
+        for (let i = 0; i < particleCount; i++) {
+            particlesPos[i * 3] = (Math.random() - 0.5) * 3;
+            particlesPos[i * 3 + 1] = (Math.random() - 0.5) * 3;
+            particlesPos[i * 3 + 2] = (Math.random() - 0.5) * 3;
             particlesVel.push({
                 y: Math.random() * 0.02 + 0.01,
                 x: (Math.random() - 0.5) * 0.01
@@ -261,7 +261,7 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
         const clock = new THREE.Clock();
         let animationFrameId;
         // Keep a ref to params to avoid re-creating the loop closure
-        const paramsRefLocal = animParams; 
+        const paramsRefLocal = animParams;
 
         const animate = () => {
             const time = clock.getElapsedTime();
@@ -279,7 +279,7 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
             armGroupL.rotation.x = Math.sin(time * paramsRefLocal.armSwingSpeed + Math.PI) * paramsRefLocal.armSwingAmplitude;
 
             // Gentle body rotation (organic feel)
-            body.rotation.x = Math.sin(time * 0.8) * 0.05 + 0.1; 
+            body.rotation.x = Math.sin(time * 0.8) * 0.05 + 0.1;
             allayGroup.rotation.y = Math.sin(time * 0.5) * 0.15;
 
             // Head tracking / idle looking
@@ -288,12 +288,12 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
 
             // Animate particles
             const positions = particleSystem.geometry.attributes.position.array;
-            for(let i=0; i<particleCount; i++) {
-                positions[i*3+1] += particlesVel[i].y;
-                positions[i*3] += particlesVel[i].x;
-                if(positions[i*3+1] > 2) {
-                    positions[i*3+1] = -2;
-                    positions[i*3] = (Math.random() - 0.5) * 3;
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3 + 1] += particlesVel[i].y;
+                positions[i * 3] += particlesVel[i].x;
+                if (positions[i * 3 + 1] > 2) {
+                    positions[i * 3 + 1] = -2;
+                    positions[i * 3] = (Math.random() - 0.5) * 3;
                 }
             }
             particleSystem.geometry.attributes.position.needsUpdate = true;
@@ -327,8 +327,8 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
             if (mountRef.current && mountRef.current.contains(renderer.domElement)) {
                 mountRef.current.removeChild(renderer.domElement);
             }
-            headGeo.dispose(); bodyGeo.dispose(); 
-            armGeoR.dispose(); armGeoL.dispose(); 
+            headGeo.dispose(); bodyGeo.dispose();
+            armGeoR.dispose(); armGeoL.dispose();
             wingGeoR.dispose(); wingGeoL.dispose();
             particlesGeo.dispose(); particleMat.dispose();
             material.dispose();
@@ -351,100 +351,35 @@ export default function AllayThree({ base = '', scale = 1.5 }) {
             armsRef.current[1].attributes.uv.needsUpdate = true;
         }
     }, [animParams.wingUV_X, animParams.wingUV_Y, animParams.wingUV_W, animParams.wingUV_H,
-        animParams.armUV_X, animParams.armUV_Y, animParams.armUV_W, animParams.armUV_H, animParams.armUV_D]);
+    animParams.armUV_X, animParams.armUV_Y, animParams.armUV_W, animParams.armUV_H, animParams.armUV_D]);
 
 
     return (
         <div className="relative w-full h-[500px] md:h-[600px] rounded-xl overflow-hidden bg-navy-deep border-2 border-daemon/30 shadow-[0_0_30px_rgba(0,217,255,0.1)]">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-daemon/10 via-navy-deep to-navy-deep pointer-events-none"></div>
-            
+
             {/* 3D Canvas */}
             <div ref={mountRef} className="absolute inset-0 z-10 cursor-grab active:cursor-grabbing" />
 
             {/* Gallery UI overlay */}
-            <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col items-center gap-4">
+            <div className="absolute bottom-4 left-4 right-4 z-20 flex justify-center">
                 <div className="flex gap-2 p-2 bg-navy/80 backdrop-blur-md rounded-lg border border-daemon/30 overflow-x-auto max-w-full">
                     {ALLAY_SKINS.map((skin, idx) => (
                         <button
                             key={skin.id}
-                            onClick={() => { setCurrentSkinIndex(idx); setAutoCycle(false); }}
-                            className={`w-12 h-12 rounded border-2 transition-all shrink-0 bg-navy-deep bg-cover bg-center ${
-                                currentSkinIndex === idx 
-                                    ? 'border-daemon shadow-[0_0_15px_rgba(0,217,255,0.5)] scale-110' 
-                                    : 'border-transparent opacity-60 hover:opacity-100 hover:border-daemon/50'
-                            }`}
+                            onClick={() => { setCurrentSkinIndex(idx); }}
+                            className={`px-3 py-2 rounded transition-all shrink-0 ${currentSkinIndex === idx
+                                ? 'bg-daemon/20 border-daemon shadow-[0_0_15px_rgba(0,217,255,0.5)] scale-110 border'
+                                : 'border border-transparent opacity-60 hover:opacity-100 hover:bg-white/5'
+                                }`}
                             title={skin.name}
-                            style={{ backgroundImage: `url(${base}${skin.path.replace(/^\//, '')})`, imageRendering: 'pixelated' }}
-                        />
+                        >
+                            <span className="text-2xl">{skin.emoji}</span>
+                        </button>
                     ))}
                 </div>
-                <div className="flex gap-4">
-                    <button 
-                        onClick={() => setAutoCycle(!autoCycle)}
-                        className={`px-4 py-2 font-pixel text-[10px] tracking-widest rounded border transition-colors ${
-                            autoCycle ? 'bg-daemon text-navy border-daemon shadow-[0_0_10px_rgba(0,217,255,0.5)]' : 'bg-navy/80 text-daemon border-daemon/50 hover:bg-daemon/20'
-                        }`}
-                    >
-                        {autoCycle ? '■ AUTO-CYCLE ON' : '▶ AUTO-CYCLE OFF'}
-                    </button>
-                    
-                    <button 
-                        onClick={() => setShowDebug(!showDebug)}
-                        className="px-4 py-2 font-pixel text-[10px] tracking-widest rounded border border-holodeck/50 text-holodeck bg-navy/80 hover:bg-holodeck/20 transition-colors"
-                    >
-                        ⚙ DEV CONTROLS
-                    </button>
-                </div>
             </div>
-
-            {/* Debug / Dev Controls Panel */}
-            {showDebug && (
-                <div className="absolute top-4 right-4 z-30 w-64 bg-navy/90 backdrop-blur-xl border border-holodeck/40 p-4 rounded text-cream font-mono text-xs max-h-[90%] overflow-y-auto shadow-2xl custom-scrollbar">
-                    <h3 className="text-holodeck font-bold mb-3 border-b border-holodeck/30 pb-1">ALLAY RIG CONTROLS</h3>
-                    
-                    <div className="space-y-4">
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Wing X: <span className="text-holodeck">{animParams.wingUV_X}</span></label>
-                            <input type="range" min="0" max="32" value={animParams.wingUV_X} onChange={e => setAnimParams(p => ({...p, wingUV_X: Number(e.target.value)}))} className="w-full accent-holodeck" />
-                        </div>
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Wing Y: <span className="text-holodeck">{animParams.wingUV_Y}</span></label>
-                            <input type="range" min="0" max="32" value={animParams.wingUV_Y} onChange={e => setAnimParams(p => ({...p, wingUV_Y: Number(e.target.value)}))} className="w-full accent-holodeck" />
-                        </div>
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Wing W: <span className="text-holodeck">{animParams.wingUV_W}</span></label>
-                            <input type="range" min="1" max="16" value={animParams.wingUV_W} onChange={e => setAnimParams(p => ({...p, wingUV_W: Number(e.target.value)}))} className="w-full" />
-                        </div>
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Wing H: <span className="text-holodeck">{animParams.wingUV_H}</span></label>
-                            <input type="range" min="1" max="16" value={animParams.wingUV_H} onChange={e => setAnimParams(p => ({...p, wingUV_H: Number(e.target.value)}))} className="w-full" />
-                        </div>
-
-                        <div className="border-t border-holodeck/20 my-2"></div>
-                        
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Arm X: <span className="text-holodeck">{animParams.armUV_X}</span></label>
-                            <input type="range" min="0" max="32" value={animParams.armUV_X} onChange={e => setAnimParams(p => ({...p, armUV_X: Number(e.target.value)}))} className="w-full" />
-                        </div>
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Arm Y: <span className="text-holodeck">{animParams.armUV_Y}</span></label>
-                            <input type="range" min="0" max="32" value={animParams.armUV_Y} onChange={e => setAnimParams(p => ({...p, armUV_Y: Number(e.target.value)}))} className="w-full" />
-                        </div>
-                        
-                        <div className="border-t border-holodeck/20 my-2"></div>
-
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Wing Speed: <span className="text-holodeck">{animParams.wingSpeed}</span></label>
-                            <input type="range" min="0" max="30" step="0.5" value={animParams.wingSpeed} onChange={e => setAnimParams(p => ({...p, wingSpeed: Number(e.target.value)}))} className="w-full" />
-                        </div>
-                        <div className="space-y-1">
-                            <label className="flex justify-between text-cream/70">Bobbing Speed: <span className="text-holodeck">{animParams.bobbingSpeed}</span></label>
-                            <input type="range" min="0" max="10" step="0.1" value={animParams.bobbingSpeed} onChange={e => setAnimParams(p => ({...p, bobbingSpeed: Number(e.target.value)}))} className="w-full" />
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
