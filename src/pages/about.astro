@@ -121,20 +121,6 @@ const base = import.meta.env.BASE_URL;
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-10">
-          {[
-            { t: 'Patrones Armónicos', d: 'Investigamos patrones armónicos que conectan sistemas físicos, biológicos, perceptuales y computacionales.', icon: '🔬', color: 'daemon' },
-            { t: 'Tecnología Soberana', d: 'Desarrollamos tecnologías capaces de traducir y aplicar estos patrones al mundo real.', icon: '⚡', color: 'holodeck' },
-            { t: 'Código Abierto', d: 'Todo lo que construimos es libre, replicable, y está diseñado para crecer desde las comunidades.', icon: '🌐', color: 'daemon' },
-          ].map((item) => (
-            <div class={`p-6 border-2 border-${item.color}/30 hover:border-${item.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1`}>
-              <div class="text-4xl mb-3">{item.icon}</div>
-              <h3 class={`font-display text-2xl uppercase text-${item.color} mb-2 tracking-wider`}>{item.t}</h3>
-              <p class="text-cream/75">{item.d}</p>
-            </div>
-          ))}
-        </div>
-
         <div class="p-8 border-2 border-daemon/20 bg-gradient-to-r from-daemon/5 to-holodeck/5 rounded">
           <p class="text-cream text-lg leading-relaxed mb-4">
             <strong class="text-daemon">AlterMundi</strong> is a research and experimentation ecosystem converging on a common core: the exploration of <strong class="text-holodeck">Harmonic Information Theory (HIT)</strong> and the development of technologies capable of investigating, translating, and applying harmonic patterns across physical, biological, perceptual, and computational systems.
