@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import GameNav from '../components/GameNav.astro';
 import RetroEffects from '../components/RetroEffects.astro';
-import MinecraftSkin from '../components/MinecraftSkin.jsx';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -27,53 +26,12 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- LA VISIÓN -->
-    <section class="py-20 px-6 bg-navy-deep/40 border-y border-daemon/10">
-      <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
-              <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">CAPÍTULO 01</span>
-            </div>
-            <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-6 leading-[0.95]">
-              La <span class="text-daemon neon-cyan">visión</span>
-            </h2>
-            <div class="space-y-4 text-cream/80 text-lg">
-              <p>
-                Hoy los sistemas de IA viven en servidores lejanos, entrenados con tu data, sin tu control.
-              </p>
-              <p>
-                <strong class="text-daemon">DaemonCraft es diferente.</strong> Tu daemon vive en tu servidor.
-                Tus datos jamás se envían para entrenar nada. Vos sos dueño.
-              </p>
-              <p class="text-cream/70">
-                No es magia. Es arquitectura inteligente + tecnología moderna + valores AlterMundi.
-              </p>
-            </div>
-          </div>
-          <div class="flex justify-center">
-            <MinecraftSkin
-              client:visible
-              skinUrl={`${base}skin-daemon.png`}
-              height={420}
-              width={300}
-              animation="idle"
-              speed={0.5}
-              rotateSpeed={0.5}
-              zoom={0.95}
-              glowColor="rgba(0, 217, 255, 0.4)"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- TECNOLOGÍA -->
     <section class="py-20 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <div class="inline-block mb-4 px-3 py-1 border border-holodeck/40 bg-holodeck/5">
-            <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">CAPÍTULO 02</span>
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">CAPÍTULO 01</span>
           </div>
           <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
             La <span class="text-holodeck neon-gold">tecnología</span> detrás
@@ -153,7 +111,7 @@ const base = import.meta.env.BASE_URL;
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
           <div class="inline-block mb-4 px-3 py-1 border border-cream/30 bg-cream/5">
-            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">CAPÍTULO 03</span>
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">CAPÍTULO 02</span>
           </div>
           <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
             Somos <span class="text-daemon neon-cyan">AlterMundi</span>
@@ -176,7 +134,7 @@ const base = import.meta.env.BASE_URL;
 
         <div class="p-8 border-2 border-daemon/20 bg-gradient-to-r from-daemon/5 to-holodeck/5 rounded">
           <p class="text-cream text-lg leading-relaxed">
-            <strong class="text-daemon">AlterMundi</strong> lleva más de una década construyendo tecnología soberana desde América Latina. DaemonCraft es el siguiente paso: un agente de IA que respeta tus derechos, tu privacidad y tu control.
+            <strong class="text-daemon">AlterMundi</strong> is a research and experimentation ecosystem converging on a common core: the exploration of Harmonic Information Theory (HIT) and the development of technologies capable of investigating, translating, and applying harmonic patterns across physical, biological, perceptual, and computational systems.
           </p>
         </div>
       </div>
