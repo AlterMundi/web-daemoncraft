@@ -2,181 +2,186 @@
 import Layout from '../layouts/Layout.astro';
 import GameNav from '../components/GameNav.astro';
 import RetroEffects from '../components/RetroEffects.astro';
+import AllayThree from '../components/AllayThree.jsx';
 
 const base = import.meta.env.BASE_URL;
+
+const team = [
+  {
+    name: 'Guille (Guilleau)',
+    role: 'Embodiment + arquitectura',
+    desc: 'Especialista en blockchain, smart contracts, networking e infraestructura. Plan de despliegue cuando escalemos.',
+    color: 'holodeck',
+    image: `${base}img/origin.png`
+  },
+  {
+    name: 'Mariana',
+    role: 'Memory stack',
+    desc: 'Construyendo el stack de memoria multi-agente. Memorias pinneadas a personas, lugares y momentos.',
+    color: 'daemon',
+    image: `${base}img/memory.png`
+  },
+  {
+    name: 'Mariano',
+    role: 'Body memory · Gemma 3',
+    desc: 'Post-entrenó Gemma 3 para operar el cuerpo en Minecraft. One-shot, en un día.',
+    color: 'cream',
+    image: `${base}img/gemma.png`
+  },
+  {
+    name: 'William y John',
+    role: 'Conexiones · USA',
+    desc: 'Empuje en Estados Unidos. Acceso a red. Audiencia. La voz que pregunta "¿cómo llevamos esto a más chicos?".',
+    color: 'holodeck',
+    image: `${base}img/abundance.png`
+  }
+];
 ---
 
-<Layout title="Sobre · DaemonCraft" description="Qué es DaemonCraft, la tecnología detrás y el equipo de AlterMundi.">
+<Layout title="Origen y Equipo · DaemonCraft" description="La historia detrás de DaemonCraft. Protegiendo lo vivo a través de inteligencia artificial autónoma.">
   <RetroEffects />
   <GameNav active="about" />
 
-  <main class="relative z-10 pt-28">
-    <!-- HERO -->
-    <section class="py-20 px-6">
-      <div class="max-w-5xl mx-auto">
-        <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
-          <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">SOBRE EL PROYECTO</span>
+  <main class="relative z-10 pt-28 pb-20">
+    <!-- HERO: THE PROBLEM & THE AI -->
+    <section class="px-6 mb-24">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <div class="inline-block mb-4 px-3 py-1 border border-daemon/40 bg-daemon/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">FIRST MOVER · FASE 0</span>
+          </div>
+          <h1 class="font-display text-4xl md:text-6xl uppercase text-cream mb-6 leading-[0.95]">
+            No existe.<br/>
+            <span class="bg-gradient-to-r from-daemon to-holodeck bg-clip-text text-transparent">Nosotros lo creamos.</span>
+          </h1>
+          <p class="text-xl text-cream/80 leading-relaxed mb-6">
+            Hoy <strong class="text-cream">no podés pagar una suscripción para que tu hijo tenga IA jugando con él</strong>. Ni para hablarle al boss final del juego.
+          </p>
+          <p class="text-lg text-cream/70 leading-relaxed mb-8">
+            Por eso entramos al <em>Hermes contest</em> y al <em>Google Gemma 3 challenge</em> — para clavar la bandera antes de que el espacio se llene. Este es tu Daemon. Cambiá su skin, imaginá sus posibilidades.
+          </p>
+          <div class="flex gap-4">
+             <button data-modal-trigger class="px-8 py-4 font-display text-sm tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_20px_rgba(255,184,0,0.3)] hover:scale-105 transition-all">
+              ⚡ Invocar
+            </button>
+          </div>
         </div>
-        <h1 class="font-display text-5xl md:text-7xl uppercase text-cream mb-6 leading-[0.95]">
-          ¿Qué es <span class="bg-gradient-to-r from-daemon to-holodeck bg-clip-text text-transparent">DaemonCraft</span>?
-        </h1>
-        <p class="text-xl text-cream/80 max-w-3xl leading-relaxed">
-          Un proyecto de soberanía tecnológica que reimagina cómo los agentes de IA pueden vivir junto a nosotros — en espacios que controlamos, con transparencia total.
-        </p>
+
+        <div class="order-1 md:order-2 relative group">
+          <div class="absolute -inset-4 bg-daemon/10 blur-xl rounded-full group-hover:bg-daemon/20 transition-all duration-500"></div>
+          <AllayThree client:load base={base} scale={1.8} />
+        </div>
       </div>
     </section>
 
-    <!-- TECNOLOGÍA -->
-    <section class="py-20 px-6">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <div class="inline-block mb-4 px-3 py-1 border border-holodeck/40 bg-holodeck/5">
-            <span class="font-pixel text-[10px] tracking-[0.3em] text-holodeck">CAPÍTULO 01</span>
+    <!-- ORIGEN -->
+    <section class="py-24 px-6 bg-navy-deep/40 border-y border-daemon/10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-holodeck/5 blur-[100px] pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 relative">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden border-2 border-holodeck/30 relative">
+              <img src={`${base}img/origin.png`} alt="El origen en la selva" class="w-full h-full object-cover opacity-80" />
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-6 -right-6 px-6 py-4 bg-navy-deep border border-holodeck shadow-[0_0_30px_rgba(255,184,0,0.2)]">
+               <span class="font-pixel text-[12px] tracking-[0.3em] text-holodeck">08 / ORIGEN</span>
+            </div>
           </div>
-          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
-            La <span class="text-holodeck neon-gold">tecnología</span> detrás
+          
+          <div class="lg:col-span-7 lg:pl-12">
+            <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-8">
+              Tres años atrás,<br/>
+              <span class="text-holodeck">una conversación.</span>
+            </h2>
+            <div class="space-y-6 text-lg text-cream/75 leading-relaxed">
+              <p>
+                Hace tres años, después de unas ceremonias de ayahuasca, William y el equipo arrancaron a hablar de cómo proteger los recursos naturales.
+              </p>
+              <p>
+                Cómo darle valor a cosas que el sistema no considera valiosas — la selva, el agua, <strong class="text-cream">lo vivo</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASE PRÁCTICA -->
+    <section class="py-24 px-6 relative">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+         <div class="inline-block mb-4 px-3 py-1 border border-cream/30 bg-cream/5">
+            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">FASE ACTUAL</span>
+          </div>
+        <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-8">
+          Hoy es la <span class="text-daemon neon-cyan">fase práctica</span>.
+        </h2>
+        <p class="text-xl text-cream/80 leading-relaxed mb-6">
+          Seis meses, un año — proveer tecnología que se monetiza rápido, para no tener que esperar al donante generoso.
+        </p>
+        <div class="p-8 border-l-4 border-holodeck bg-gradient-to-r from-holodeck/10 to-transparent text-left">
+          <p class="text-lg text-cream/90 italic">
+            "La abundancia no es el objetivo. Es la condición necesaria para hacer todo lo otro. Por eso este proyecto: porque podemos divertirnos haciéndolo, porque hay producto, porque la arquitectura que aprendemos acá vive después en el resto de las cosas que nos importan."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EL EQUIPO -->
+    <section class="py-24 px-6 bg-navy-deep/60 border-t border-daemon/20">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream">
+            Equipo del <span class="text-holodeck">Meeting</span>
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: 'Daemon',
-              sub: 'El compañero',
-              color: 'daemon',
-              items: [
-                'Agente autónomo de IA',
-                'Corre 24/7 sin dormir',
-                'Memoria persistente entre sesiones',
-                'Aprendizaje local (fine-tuning)',
-                'LLM: GPT-4o + fallbacks open-source',
-              ],
-            },
-            {
-              title: 'Holodeck',
-              sub: 'El generador',
-              color: 'holodeck',
-              items: [
-                'Generación automática de aventuras',
-                'TRELLIS.2 (Microsoft) para 3D',
-                'Flux/SD3 para texturas',
-                'Conversión automática a Minecraft',
-                'Adventure Packs listos para jugar',
-              ],
-            },
-            {
-              title: 'Role Master',
-              sub: 'El orquestador',
-              color: 'daemon',
-              items: [
-                'Dirige la narrativa de tu partida',
-                'Crea desafíos personalizados',
-                'Aprende de tus preferencias',
-                'Bridge a Telegram',
-                'Reportes a familia/educadores',
-              ],
-            },
-            {
-              title: 'Stack',
-              sub: 'Todo open',
-              color: 'holodeck',
-              items: [
-                'Frontend: Astro 5 + React',
-                'Backend: Node + Python (FastAPI)',
-                'Database: PostgreSQL + Redis',
-                'Bridge MC: Mineflayer',
-                'GPL-3.0 + Compliance ready',
-              ],
-            },
-          ].map((card) => (
-            <div class={`p-8 border-2 border-${card.color}/30 hover:border-${card.color} bg-navy-deep/40 backdrop-blur rounded transition-all hover:-translate-y-1`}>
-              <h3 class={`font-display text-3xl uppercase text-${card.color} mb-1 tracking-wider`}>{card.title}</h3>
-              <p class="font-pixel text-[9px] tracking-[0.3em] text-cream/50 mb-5">▸ {card.sub.toUpperCase()}</p>
-              <ul class="space-y-2">
-                {card.items.map((item) => (
-                  <li class="flex items-start gap-3 text-cream/80">
-                    <span class={`text-${card.color} font-display`}>▸</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+        <div class="grid md:grid-cols-2 gap-8">
+          {team.map((member, i) => (
+            <div class="group relative flex flex-col sm:flex-row gap-6 p-6 border border-cream/10 bg-navy/50 hover:bg-navy hover:border-cream/30 transition-all rounded overflow-hidden">
+              <div class="w-full sm:w-1/3 aspect-square sm:aspect-auto shrink-0 border border-cream/20 rounded overflow-hidden relative">
+                <img src={member.image} alt={member.name} class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+                <div class={`absolute inset-0 bg-${member.color}/20 mix-blend-overlay`}></div>
+              </div>
+              <div class="flex-1 flex flex-col justify-center">
+                <h3 class="font-display text-3xl uppercase text-cream mb-1">{member.name}</h3>
+                <p class={`font-pixel text-[10px] tracking-[0.2em] text-${member.color} mb-4`}>▸ {member.role.toUpperCase()}</p>
+                <p class="text-cream/70 text-sm leading-relaxed">{member.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-
-    <!-- ALTERMUNDI -->
-    <section class="py-20 px-6 bg-navy-deep/40 border-y border-holodeck/10">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
-          <div class="inline-block mb-4 px-3 py-1 border border-cream/30 bg-cream/5">
-            <span class="font-pixel text-[10px] tracking-[0.3em] text-cream/70">CAPÍTULO 02</span>
-          </div>
-          <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-4">
-            Somos <span class="text-daemon neon-cyan">AlterMundi</span>
-          </h2>
-          <p class="text-cream/70 text-lg max-w-3xl mx-auto">
-            Un ecosistema de investigación y experimentación centrado en la <strong class="text-holodeck">Harmonic Information Theory (HIT)</strong>.
-          </p>
-        </div>
-
-        <div class="p-8 border-2 border-daemon/20 bg-gradient-to-r from-daemon/5 to-holodeck/5 rounded">
-          <p class="text-cream text-lg leading-relaxed mb-4">
-            <strong class="text-daemon">AlterMundi</strong> is a research and experimentation ecosystem converging on a common core: the exploration of <strong class="text-holodeck">Harmonic Information Theory (HIT)</strong> and the development of technologies capable of investigating, translating, and applying harmonic patterns across physical, biological, perceptual, and computational systems.
-          </p>
-          <a href="https://hi.altermundi.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 font-display text-sm uppercase tracking-widest border-2 border-holodeck text-holodeck hover:bg-holodeck hover:text-navy-deep transition-all rounded">
-            🔗 Explorá HIT → hi.altermundi.com
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-24 px-6">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-display text-4xl md:text-5xl uppercase text-cream mb-6">
-          ¿Te <span class="text-holodeck neon-gold">interesa</span>?
-        </h2>
-        <p class="text-cream/80 text-lg mb-8">Sumate a la preventa o contactanos para colaborar.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button data-modal-trigger class="px-8 py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_30px_rgba(255,184,0,0.4)] hover:scale-105 transition-all">
-            🎮 Me sumo
-          </button>
-          <a href={`${base}contact`} class="px-8 py-4 font-display text-base tracking-widest uppercase border-2 border-daemon text-daemon hover:bg-daemon hover:text-navy-deep transition-all rounded">
-            Contacto →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="py-10 px-6 border-t border-daemon/20 bg-navy-deep/60 backdrop-blur">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">⚡ DAEMONCRAFT · ALTERMUNDI · 2026</p>
-        <p class="font-pixel text-[10px] tracking-[0.3em] text-cream/50">SOBERANÍA · TECNOLÓGICA</p>
-      </div>
-    </footer>
   </main>
 
-  <!-- Same modal as home -->
+  <!-- Preventa Modal -->
   <div id="preventa-modal" class="hidden fixed inset-0 bg-navy-deep/95 backdrop-blur-md z-[100] flex items-center justify-center p-4">
     <div class="relative bg-navy border-2 border-daemon rounded p-8 max-w-md w-full shadow-[0_0_40px_rgba(0,217,255,0.4)]">
       <div class="absolute -top-3 left-6 px-3 py-1 bg-navy-deep border-2 border-daemon">
         <span class="font-pixel text-[10px] tracking-[0.3em] text-daemon">SAVE GAME</span>
       </div>
       <button id="modal-close" class="absolute top-4 right-4 text-cream/60 hover:text-daemon text-2xl">×</button>
+
       <h2 class="font-display text-3xl uppercase text-cream mb-2 mt-2">Sumate</h2>
-      <p class="text-cream/70 text-sm mb-6">Te avisamos cuando abramos las puertas.</p>
+      <p class="text-cream/70 text-sm mb-6">Te avisamos cuando abramos las puertas para tu familia.</p>
+
       <form id="preventa-form" class="space-y-4">
         <div>
           <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ NOMBRE</label>
-          <input type="text" name="nombre" required class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none transition" placeholder="Cómo te llamás" />
+          <input type="text" name="nombre" required
+            class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none focus:shadow-[0_0_15px_rgba(0,217,255,0.3)] transition"
+            placeholder="Cómo te llamás" />
         </div>
         <div>
           <label class="block font-pixel text-[9px] tracking-[0.3em] text-cream/70 mb-2">▸ EMAIL</label>
-          <input type="email" name="email" required class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none transition" placeholder="tu@email.com" />
+          <input type="email" name="email" required
+            class="w-full px-4 py-3 bg-navy-deep border border-daemon/40 text-cream rounded focus:border-daemon focus:outline-none focus:shadow-[0_0_15px_rgba(0,217,255,0.3)] transition"
+            placeholder="tu@email.com" />
         </div>
-        <button type="submit" class="w-full py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded hover:scale-105 transition-all">
+        <button type="submit"
+          class="w-full py-4 font-display text-base tracking-widest uppercase bg-gradient-to-r from-holodeck to-daemon text-navy-deep rounded shadow-[0_0_20px_rgba(255,184,0,0.4)] hover:shadow-[0_0_40px_rgba(0,217,255,0.6)] transition-all">
           ✓ INVOCAR
         </button>
       </form>
@@ -192,17 +197,22 @@ const base = import.meta.env.BASE_URL;
   document.querySelectorAll('[data-modal-trigger]').forEach((btn) => {
     btn.addEventListener('click', () => modal?.classList.remove('hidden'));
   });
+
   closeBtn?.addEventListener('click', () => modal?.classList.add('hidden'));
   modal?.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.add('hidden');
   });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') modal?.classList.add('hidden');
   });
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const fd = new FormData(form);
-    alert(`✓ ¡Gracias ${fd.get('nombre')}! Te escribimos a ${fd.get('email')}`);
+    const nombre = fd.get('nombre');
+    const email = fd.get('email');
+    alert(`✓ ¡Gracias ${nombre}! Te escribimos a ${email}`);
     form.reset();
     modal?.classList.add('hidden');
   });
